@@ -6,8 +6,9 @@
 
 :root {
     --font-dasar: "poppins";
-    --background-color: rgb(245, 245, 245);
-    --background-color2: rgb(122, 191, 205);
+    --navbar-color: rgb(54, 54, 54);
+    --background-color: rgb(54, 54, 54);
+    --background-color2: rgb(217, 217, 217);
     --border-estetik: 2px rgb(93, 93, 93) solid;
     --warna-list: rgb(206, 206, 206);
     --warna-hitam-dasar: rgb(54, 54, 54);
@@ -30,38 +31,70 @@
     user-select: none;
     -webkit-user-select: none;
     outline: none;
-    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimizeQuality;
 }
 
 /* container */
 .container {
     width: 100%;
     height: 100dvh;
-    background-color: red;
 }
 
 /* navbar */
 .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    height: 10dvh;
-    background-color: blue;
+    height: 15dvh;
+    padding: 0 2rem;
+    color: #edefef;
+    background-color: var(--navbar-color);
+}
+
+#logo {
+    width: 50px;
+    height: 50px;
+}
+
+#nama {
+    text-align: center;
+}
+
+.list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+}
+
+.link {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+}
+
+.bagi {
+    height: fit-content;
+    width: 33.3%;
 }
 
 /* hero */
-.container h1 {
+#hero {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70dvh;
+    height: 100dvh;
+    color: #212121;
+    background-color: var(--background-color2);
 }
 
 /* group */
 .group {
     display: flex;
-    justify-content: center;
-    gap: 0px;
+    justify-content: space-evenly;
     width: 100%;
-    height: 50dvh;
+    height: fit-content;
     background-color: green;
     overflow: hidden;
 }
@@ -69,8 +102,6 @@
 .column-group {
     width: 250px;
     height: 300px;
-    margin: 50px;
-    margin-top: 60px;
     background-color: purple;
 }
 
