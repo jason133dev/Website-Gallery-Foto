@@ -1,11 +1,36 @@
 @font-face {
-    font-family: pixelify;
-    src: url(PixelifySans-VariableFont_wght.ttf);
+    font-family: montserrat-regular;
+    src: url(Montserrat-Regular.ttf);
+}
 
+@font-face {
+    font-family: montserrat-bold;
+    src: url(Montserrat-Bold.ttf);
+}
+
+@font-face {
+    font-family: montserrat-thin;
+    src: url(Montserrat-Thin.ttf);
+}
+
+@font-face {
+    font-family: perfectlynineties-regular;
+    src: url(PerfectlyNineties-Regular.ttf);
+}
+
+@font-face {
+    font-family: perfectlynineties-regular-italic;
+    src: url(PerfectlyNineties-RegularItalic.ttf);
+}
+
+@font-face {
+    font-family: perfectlynineties-bold-italic;
+    src: url();
 }
 
 :root {
-    --font-dasar: "poppins";
+    --font-dasar: "montserrat-regular";
+    --font-display1: "perfectlynineties-regular";
     --navbar-color: rgb(54, 54, 54);
     --background-color: rgb(54, 54, 54);
     --background-color2: rgb(217, 217, 217);
@@ -37,7 +62,7 @@
 /* container */
 .container {
     width: 100%;
-    height: 100dvh;
+    height: 300dvh;
 }
 
 /* navbar */
@@ -45,6 +70,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     width: 100%;
     height: 15dvh;
     padding: 0 2rem;
@@ -71,6 +99,9 @@
 .link {
     display: block;
     padding: 1rem;
+    font-family: montserrat-regular;
+    letter-spacing: -1px;
+    color: rgb(137, 137, 137);
     text-decoration: none;
 }
 
@@ -80,13 +111,19 @@
 }
 
 /* hero */
-#hero {
+.hero {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     height: 100dvh;
-    color: #212121;
     background-color: var(--background-color2);
+}
+
+#hero-teks {
+    font-family: var(--font-display1);
+    font-size: 5rem;
+    color: #212121;
 }
 
 /* group */
@@ -96,7 +133,6 @@
     width: 100%;
     height: fit-content;
     background-color: green;
-    overflow: hidden;
 }
 
 .column-group {

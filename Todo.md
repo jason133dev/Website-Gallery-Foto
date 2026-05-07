@@ -6,7 +6,12 @@
 ---
 
 ## 07-05-2026
-- [ ] Pilih font
+- [x] Pilih font
+
+---
+
+## 08-05-2026
+- [ ] Pilih font `Digital Gallery`
 - [ ] Tetapkan color pallet
 
 ---
