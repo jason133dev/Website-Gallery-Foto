@@ -11,39 +11,56 @@
 <body>
     <div class="container">
         <!-- navbar -->
-        <div class="navbar">
+        <div class="navbar" fetchpriority="high">
             <!-- logo -->
             <div class="container-logo bagi">
                 <img src="Asset/logo osis.png" id="logo">
             </div>
 
             <!-- nama -->
-            <h1 class="bagi" id="nama">Digital Gallery</h1>
+            <h1 class="bagi sinar" id="nama">Digital <span
+                    style="font-family: perfectlynineties-regular-italic;">Gallery</span></h1>
 
             <!-- list -->
             <ul class="list bagi">
-                <li><a href="#" class="link">HOME</a></li>
-                <li><a href="#" class="link">EVENTS</a></li>
-                <li><a href="#" class="link">COLLECTION</a></li>
+                <li><a href="#" class="link muncul" id="list1">HOME</a></li>
+                <li><a href="#" class="link muncul" id="list2">EVENTS</a></li>
+                <li><a href="#" class="link muncul" id="list3">COLLECTION</a></li>
             </ul>
         </div>
 
         <!-- hero -->
-         <div class="hero">
-            <h1 id="hero-teks">Find Your <span style="font-family: perfectlynineties-regular-italic;">Moment</span></h1>
-         </div>
+        <div class="hero">
+            <p class="hilang" id="hero-teks2">Every frame tells a story.</p>
+
+            <h1 class="hilang" id="hero-teks">Find Your <span
+                    style="font-family: perfectlynineties-regular-italic;">Moment</span></h1>
+
+            <button class="hilang" id="hero-button">See Collection</button>
+        </div>
 
         <!-- group -->
-        <div class="group">
-            <div class="column-group"></div>
+        <div class="group scroll">
+            <div class="warp">
+                <div class="column-group">
+                    <h3>Por 2026</h3>
+                    <p>12 - 15 Mei 2026</p>
+                    <p>Ahmad Yani Binjai</p>
+                    <p>40</p>
+                </div>
 
-            <div class="column-group"></div>
+                <div class="column-group"></div>
 
-            <div class="column-group"></div>
+                <div class="column-group"></div>
+
+                <div class="column-group"></div>
+
+                <div class="column-group"></div>
+            </div>
         </div>
 
         <!-- koleksi -->
-        <div class="koleksi">
+        <div class="koleksi scroll">
             <div class="column-koleksi"></div>
 
             <div class="column-koleksi"></div>
@@ -51,6 +68,13 @@
             <div class="column-koleksi"></div>
         </div>
     </div>
+
+    <!-- script -->
+    <script type="module" src="gallery.js"></script>
+
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" fetchpriority="high"></script>
+    <script type="module" src="lenis.js"></script>
+</body>
 </body>
 
 </html>

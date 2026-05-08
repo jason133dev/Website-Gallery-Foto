@@ -11,8 +11,17 @@
 ---
 
 ## 08-05-2026
-- [ ] Pilih font `Digital Gallery`
-- [ ] Tetapkan color pallet
+- [x] Pilih font `Digital Gallery`
+- [x] Tetapkan color pallet
+- [x] **EXTRA:** Optimalisasi UI/UX
+- [x] **EXTRA:** Buat animasi UI/UX
+- [x] **EXTRA:** Buat slide logic
+- [x] **EXTRA:** Buat logic lenis
+
+---
+
+## 09-05-2026
+- [ ] Sempurnakan Design `group`
 
 ---
 

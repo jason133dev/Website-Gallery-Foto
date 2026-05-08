@@ -31,9 +31,9 @@
 :root {
     --font-dasar: "montserrat-regular";
     --font-display1: "perfectlynineties-regular";
-    --navbar-color: rgb(54, 54, 54);
+    --navbar-color: rgba(54, 54, 54, 0.548);
     --background-color: rgb(54, 54, 54);
-    --background-color2: rgb(217, 217, 217);
+    --background-color2: rgb(33, 33, 33);
     --border-estetik: 2px rgb(93, 93, 93) solid;
     --warna-list: rgb(206, 206, 206);
     --warna-hitam-dasar: rgb(54, 54, 54);
@@ -59,6 +59,10 @@
     image-rendering: optimizeQuality;
 }
 
+body {
+    background-color: var(--background-color2);
+}
+
 /* container */
 .container {
     width: 100%;
@@ -74,10 +78,13 @@
     position: sticky;
     top: 0;
     width: 100%;
-    height: 15dvh;
+    height: 12dvh;
     padding: 0 2rem;
     color: #edefef;
     background-color: var(--navbar-color);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #edefef22;
+    z-index: 999;
 }
 
 #logo {
@@ -86,7 +93,9 @@
 }
 
 #nama {
+    font-family: var(--font-display1);
     text-align: center;
+    white-space: nowrap;
 }
 
 .list {
@@ -94,6 +103,20 @@
     justify-content: flex-end;
     align-items: center;
     list-style: none;
+    font-size: clamp(.6rem, 1svw, 1svw);
+    animation-delay: .2s;
+}
+
+#list1 {
+    animation-delay: .2s;
+}
+
+#list2 {
+    animation-delay: .6s;
+}
+
+#list3 {
+    animation-delay: .8s;
 }
 
 .link {
@@ -115,29 +138,78 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     text-align: center;
     height: 100dvh;
     background-color: var(--background-color2);
 }
 
+#hero-teks2 {
+    font-family: montserrat-thin;
+    font-size: clamp(.7rem, 1.2svw, 1.5svw);
+    color: #edefef89;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+    animation-delay: .2s;
+}
+
 #hero-teks {
     font-family: var(--font-display1);
-    font-size: 5rem;
-    color: #212121;
+    font-size: clamp(2rem, 6svw, 6svw);
+    color: #edefef;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+    animation-delay: .4s;
+}
+
+#hero-button {
+    padding: 2.2cqh 2cqw;
+    font-size: clamp(0.6rem, 1cqw, 1.2rem);
+    margin: 1rem 0;
+    background-color: #edefef;
+    outline: none;
+    border: none;
+    color: var(--background-color);
+    border-radius: 2rem;
+    transition: background-color .5s ease, color .5s ease, translate .5s ease, opacity 1s ease-in-out;
+    opacity: 0;
+    animation-delay: .6s;
+}
+
+#hero-button:hover {
+    color: #edefef;
+    background-color: rgb(56, 56, 56);
+    translate: 0 -3px;
+}
+
+#hero-button:active {
+    translate: 0 0px;
+    background-color: rgb(93, 93, 93);
 }
 
 /* group */
 .group {
-    display: flex;
-    justify-content: space-evenly;
     width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background-color: green;
+}
+
+.warp {
+    display: flex;
+    justify-content: flex-start;
+    gap: 5svw;
+    width: max-content;
     height: fit-content;
+    margin: 0 5svw;
     background-color: green;
 }
 
 .column-group {
     width: 250px;
-    height: 300px;
+    flex: 0 0 250px;
+    aspect-ratio: 1 / 1.2;
+    border-radius: 15px;
     background-color: purple;
 }
 
@@ -145,4 +217,74 @@
 .koleksi {
     width: 100%;
     height: 100dvh;
+}
+
+
+/* animation */
+/* hilang */
+.hilang {
+    animation: in-animation 2s ease-in-out forwards;
+}
+
+@keyframes in-animation {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* scroll */
+.scroll {
+    animation: fade-in linear forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* muncul */
+.muncul {
+    animation: muncul 1s ease-in-out forwards;
+}
+
+@keyframes muncul {
+
+    0%,
+    100% {
+        translate: 0 0;
+        filter: brightness(1);
+    }
+
+    50% {
+        translate: 0 -5px;
+        filter: brightness(2);
+    }
+}
+
+/* sinar */
+.sinar {
+    animation: sinar 1s ease-in-out forwards;
+}
+
+@keyframes sinar {
+
+    0%,
+    100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(2);
+    }
 }
