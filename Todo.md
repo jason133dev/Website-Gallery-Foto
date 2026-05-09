@@ -22,6 +22,7 @@
 
 ## 09-05-2026
 - [x] Sempurnakan Design `group`
+- [ ] Ganti mouse jadi pointer di `index.js`
 
 ---
 
