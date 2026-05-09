@@ -25,13 +25,15 @@
 
 @font-face {
     font-family: perfectlynineties-bold-italic;
-    src: url();
+    src: url(PerfectlyNineties-BoldItalic.ttf);
 }
 
 :root {
     --font-dasar: "montserrat-regular";
     --font-display1: "perfectlynineties-regular";
     --navbar-color: rgba(54, 54, 54, 0.548);
+    --warna-npc: rgba(237, 239, 239, 0.537);
+    --warna-npc2: rgba(0, 0, 0, 0.537);
     --background-color: rgb(54, 54, 54);
     --background-color2: rgb(33, 33, 33);
     --border-estetik: 2px rgb(93, 93, 93) solid;
@@ -42,6 +44,7 @@
     --warna-hamburger: rgb(41, 41, 41);
     --warna-hitung: rgb(77, 77, 77);
     --warna-button: rgb(41, 41, 41);
+    --pemisah: 1px solid #edefef22;
 }
 
 * {
@@ -83,7 +86,7 @@ body {
     color: #edefef;
     background-color: var(--navbar-color);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid #edefef22;
+    border-bottom: var(--pemisah);
     z-index: 999;
 }
 
@@ -124,7 +127,7 @@ body {
     padding: 1rem;
     font-family: montserrat-regular;
     letter-spacing: -1px;
-    color: rgb(137, 137, 137);
+    color: var(--warna-npc);
     text-decoration: none;
 }
 
@@ -188,29 +191,91 @@ body {
 }
 
 /* group */
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    color: #edefef;
+    width: 100%;
+    border-bottom: var(--pemisah);
+    margin-bottom: 1rem;
+}
+
+.main {
+    font-family: perfectlynineties-bold-italic;
+    letter-spacing: -0.02em;
+}
+
+.npc {
+    font-family: montserrat-thin;
+    font-size: clamp(.7rem, 1.2svw, 1.5svw);
+    color: #edefef89;
+}
+
+.group-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .group {
     width: 100%;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    background-color: green;
 }
 
-.warp {
+.column-group-container {
     display: flex;
     justify-content: flex-start;
     gap: 5svw;
     width: max-content;
     height: fit-content;
     margin: 0 5svw;
-    background-color: green;
 }
 
 .column-group {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
     width: 250px;
     flex: 0 0 250px;
-    aspect-ratio: 1 / 1.2;
+    aspect-ratio: 3 / 2.6;
+    padding: .6rem;
+    font-size: .7rem;
     border-radius: 15px;
-    background-color: purple;
+    overflow: hidden;
+    color: rgb(51, 51, 51);
+    background-color: #edefef;
+}
+
+.card-img-container {
+    height: 70%;
+    aspect-ratio: 3 / 2.6;
+    border-radius: 15px;
+    background-color: rgb(160, 160, 165);
+    overflow: hidden;
+}
+
+.card-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 30%;
+    font-size: 0.7rem;
+    letter-spacing: -1px;
+    border-radius: .6rem;
+    overflow: hidden;
+}
+
+.information p {
+    font-weight: 500;
 }
 
 /* koleksi */
