@@ -21,7 +21,7 @@
 ---
 
 ## 09-05-2026
-- [ ] Sempurnakan Design `group`
+- [x] Sempurnakan Design `group`
 
 ---
 
