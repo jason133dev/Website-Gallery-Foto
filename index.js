@@ -23,8 +23,8 @@ group.addEventListener('pointerup', () => {
 
 group.addEventListener('pointermove', (e) => {
     if (!isDown) return;
+    e.preventDefault();
     let x = e.pageX - group.offsetLeft;
     let walk = (x - startX) * 2;
     group.scrollLeft = scrollLeft - walk;
 });
-
