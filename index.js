@@ -1,5 +1,7 @@
-// slide
+// asset
 let group = document.querySelector('.group');
+
+// slide logic
 let isDown = false;
 let startX;
 let scrollLeft;
@@ -24,8 +26,12 @@ group.addEventListener('pointerup', () => {
 group.addEventListener('pointermove', (e) => {
     if (!isDown) return;
     let x = e.pageX - group.offsetLeft;
+
     let sensitive = window.innerWidth < 768 ? 3 : 2;
-    console.log(sensitive)
+    if (window.innerWidth < 768) {
+        group.style.scrollBehavior = `auto`;
+    }
+
     let walk = (x - startX) * sensitive;
     group.scrollLeft = scrollLeft - walk;
 });

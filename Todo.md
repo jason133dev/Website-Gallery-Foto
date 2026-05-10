@@ -26,7 +26,8 @@
 ---
 
 ## 10-05-2026
-- [ ] Ganti mouse jadi pointer di `index.js`
+- [x] Ganti mouse jadi pointer di `index.js`
+- [x] **EXTRA:** Optimalisasi UI/UX
 
 ---
 
