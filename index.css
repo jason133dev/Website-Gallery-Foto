@@ -223,6 +223,7 @@ body {
     overflow-x: hidden;
     overflow-y: visible;
     scroll-behavior: smooth;
+    touch-action: pan-y;
 }
 
 .column-group-container {
