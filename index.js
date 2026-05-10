@@ -24,7 +24,7 @@ group.addEventListener('pointerup', () => {
 group.addEventListener('pointermove', (e) => {
     if (!isDown) return;
     let x = e.pageX - group.offsetLeft;
-    let sensitive = window.innerWidth < 768 ? 5 : 2;
+    let sensitive = window.innerWidth < 768 ? 3 : 2;
     console.log(sensitive)
     let walk = (x - startX) * sensitive;
     group.scrollLeft = scrollLeft - walk;
