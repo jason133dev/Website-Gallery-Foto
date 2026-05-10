@@ -260,7 +260,7 @@ body {
 .card-img-container {
     height: 70%;
     aspect-ratio: 3 / 2.6;
-    border-radius: 15px;
+    border-radius: 5.4px;
     background-color: rgb(160, 160, 165);
     overflow: hidden;
 }
