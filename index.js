@@ -4,24 +4,24 @@ let isDown = false;
 let startX;
 let scrollLeft;
 
-group.addEventListener('mousedown', (e) => {
+group.addEventListener('pointerdown', (e) => {
     isDown = true;
     group.style.cursor = 'grabbing';
     startX = e.pageX - group.offsetLeft;
     scrollLeft = group.scrollLeft;
 });
 
-group.addEventListener('mouseleave', () => {
+group.addEventListener('pointerleave', () => {
     isDown = false;
     group.style.cursor = 'grab';
 });
 
-group.addEventListener('mouseup', () => {
+group.addEventListener('pointerup', () => {
     isDown = false;
     group.style.cursor = 'grab';
 });
 
-group.addEventListener('mousemove', (e) => {
+group.addEventListener('pointermove', (e) => {
     if (!isDown) return;
     let x = e.pageX - group.offsetLeft;
     let walk = (x - startX) * 2;

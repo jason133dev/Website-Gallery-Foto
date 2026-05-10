@@ -26,6 +26,11 @@
 
 ---
 
+## 10-05-2026
+- [ ] Ganti mouse jadi pointer di `index.js`
+
+---
+
 
 # Backlog
 
