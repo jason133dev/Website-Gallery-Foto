@@ -340,10 +340,16 @@ body {
     width: 100%;
     height: max-content;
 }
+
 .column-koleksi {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+
+.koleksi-img {
+    border-radius: 1rem;
+    overflow: hidden;
 }
 
 .koleksi-img img {
@@ -353,7 +359,21 @@ body {
     filter: contrast(.8);
 }
 
+/* responsif */
+@media(320px <=width <=768px) {
+    .koleksi-img {
+        border-radius: .3rem;
+    }
 
+    .koleksi {
+        gap: .5rem;
+        padding: 2rem .5rem;
+    }
+
+    .column-koleksi {
+        gap: .5rem;
+    }
+}
 
 /* animation */
 /* hilang */
