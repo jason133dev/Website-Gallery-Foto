@@ -32,7 +32,7 @@
 ---
 
 ## 12-05-2026
-- [ ] Desain UI/UX `Collection`
+- [x] Desain UI/UX `Collection`
 
 ---
 

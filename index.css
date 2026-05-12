@@ -327,6 +327,17 @@ body {
     color: #edefef89;
 }
 
+.filter {
+    display: flex;
+    align-items: center;
+}
+
+.filter-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 2px;
+}
+
 .koleksi-container {
     display: flex;
     flex-direction: column;
@@ -358,17 +369,29 @@ body {
     width: 100%;
     height: 100%;
     filter: contrast(.8);
+    transition: scale .5s ease-in-out;
 }
 
 .koleksi-img p {
+    display: none;
     position: absolute;
     z-index: 2;
-    bottom: 0;
-    font-size: clamp(.6rem, 1svw, 1svw);
-    font-family: montserrat-regular;
+    bottom: 2svh;
+    left: 2svh;
+    font-size: 1rem;
+    font-weight: lighter;
+    font-family: montserrat-bold;
     letter-spacing: -1px;
+    white-space: nowrap;
     color: var(--warna-npc);
     color: #edefef;
+}
+
+.date {
+    font-family: montserrat-regular;
+    font-size: clamp(.6rem, 1svw, 1svw);
+    letter-spacing: -1px;
+    color: var(--warna-npc);
 }
 
 .koleksi-img::after {
@@ -390,6 +413,15 @@ body {
     -moz-box-shadow: 0px 0px 100px 21px rgba(0, 0, 0, 1) inset;
     cursor: pointer;
 }
+
+.koleksi-img:hover p {
+    display: block;
+}
+
+.koleksi-img:hover img {
+    scale: 1.05;
+}
+
 
 /* responsif */
 @media(320px <=width <=768px) {
