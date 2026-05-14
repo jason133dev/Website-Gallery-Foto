@@ -38,7 +38,7 @@
 
 ## 13-05-2026
 - [x] Buat sistem API ambil foto dari google drive
-- [ ] Desain `show preview`
+- [ ] Desain `lightbox preview`
 
 ---
 

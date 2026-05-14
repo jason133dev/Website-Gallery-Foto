@@ -66,6 +66,22 @@ body {
     background-color: var(--background-color2);
 }
 
+/* lightbox */
+.lightbox {
+    position: fixed;
+    width: 100%;
+    height: 100dvh;
+    background-color: rgba(33, 33, 33, 0.427);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    transition: opacity .3s ease-in-out;
+}
+
+.lightbox-hilang {
+    opacity: 0;
+    pointer-events: none;
+}
+
 /* container */
 .container {
     width: 100%;
@@ -87,7 +103,7 @@ body {
     background-color: var(--navbar-color);
     backdrop-filter: blur(10px);
     border-bottom: var(--pemisah);
-    z-index: 999;
+    z-index: 998;
 }
 
 #logo {
@@ -338,6 +354,31 @@ body {
     margin-right: 2px;
 }
 
+.filter-tag {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    height: max-content;
+}
+
+.filter-tag-button {
+    padding: 2.2cqh 2cqw;
+    font-size: clamp(0.6rem, 1cqw, 1.2rem);
+    margin: 1rem 0;
+    background: transparent;
+    outline: none;
+    border: var(--border-estetik);
+    color: #edefef;
+    border-radius: 2rem;
+    animation-delay: .6s;
+}
+
+.filter-tag-button:hover {
+    background-color: rgb(86, 86, 86);
+    cursor: pointer;
+}
+
 .koleksi-container {
     display: flex;
     flex-direction: column;
@@ -350,6 +391,7 @@ body {
     padding: 2rem 1rem;
     width: 100%;
     height: max-content;
+    min-height: 90dvh;
 }
 
 .column-koleksi {
@@ -362,6 +404,7 @@ body {
     position: relative;
     border-radius: 1rem;
     overflow: hidden;
+    filter: contrast(0);
 }
 
 .koleksi-img img {

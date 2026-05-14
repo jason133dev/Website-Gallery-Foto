@@ -9,6 +9,8 @@
 </head>
 
 <body>
+    <div class="lightbox lightbox-hilang"></div>
+
     <div class="container">
         <!-- navbar -->
         <div class="navbar" fetchpriority="high">
@@ -116,6 +118,14 @@
                 </div>
             </div>
 
+            <div class="filter-tag">
+                <button class="filter-tag-button">Best</button>
+                <button class="filter-tag-button">Best</button>
+                <button class="filter-tag-button">Best</button>
+                <button class="filter-tag-button">Best</button>
+                <button class="filter-tag-button">Best</button>
+            </div>
+
             <div class="koleksi">
 
                 <!-- column 1 -->
@@ -168,6 +178,13 @@
                         </p>
                     </div>
 
+                    <div class="koleksi-img">
+                        <img src="https://picsum.photos/900/1600">
+                        <p>MPLS OSIS 2026 <br>
+                            <span class="date">20 Agustus 2026</span>
+                        </p>
+                    </div>
+
                 </div>
 
                 <!-- column 3 -->
@@ -194,6 +211,13 @@
                         </p>
                     </div>
 
+                    <div class="koleksi-img">
+                        <img src="https://picsum.photos/3080/2000">
+                        <p>MPLS OSIS 2026 <br>
+                            <span class="date">20 Agustus 2026</span>
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -201,7 +225,7 @@
 
     <!-- script -->
     <script type="module" src="index.js"></script>
-    <script type="module" src="api.js"></script>
+    <script type="module" src="api.js" fetchpriority="high"></script>
 
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" fetchpriority="high"></script>
     <script type="module" src="lenis.js"></script>
