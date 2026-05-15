@@ -1,4 +1,4 @@
-const apiURL = "https://script.google.com/macros/s/AKfycbxdmiyNmtdyUiepgh5EIsqKwhJWu89e5z8GurQoyRm6OSPJtJsJC1A0kqhuikI0QPHv/exec";
+const apiURL = "https://script.google.com/macros/s/AKfycbzLrwYEP9FE-XeZ8c3ARNI8zeqGQt6O6fy5eHBYPdxIG2BfL0f4NM7EJx7JQJZJ7bvU/exec";
 
 
 async function fetchGallery() {
@@ -6,32 +6,31 @@ async function fetchGallery() {
         const response = await fetch(apiURL);
         const data = await response.json();
 
-        // Ambil ketiga kolom kamu dari HTML
-        const columns = document.querySelectorAll('.column-koleksi');
-
-        // Bersihkan isi kolom statis (MPLS OSIS 2026 yang kamu tulis manual tadi)
+        let columns = document.querySelectorAll('.column-koleksi');
         columns.forEach(col => col.innerHTML = '');
 
-        // Looping data dan bagi ke kolom secara adil (0, 1, 2, kembali ke 0...)
         data.forEach((item, index) => {
-            const columnIndex = index % columns.length; // Hasilnya bakal 0, 1, atau 2
+            const columnIndex = index % columns.length;
 
-            const htmlMarkup = `
+            // STRATEGI LCP: 3-6 gambar pertama (tergantung jumlah kolom) dikasih eager
+            // Sisanya baru lazy. Kita pakai threshold 'index < 6' untuk jaga-jaga di layar desktop.
+            const loadingStrategy = index < 6 ? 'eager' : 'lazy';
+            const priority = index < 3 ? 'high' : 'auto'; // VVIP buat 3 gambar teratas
+
+            let htmlMarkup = `
                 <div class="koleksi-img">
-                    <img src="${item.url}" alt="${item.judul}" loading="lazy">
+                    <img src="${item.url}" 
+                         alt="${item.judul}" 
+                         loading="${loadingStrategy}" 
+                         fetchpriority="${priority}"
+                         class="klikOn">
                     <p>${item.judul} <br>
                         <span class="date">${item.tanggal}</span>
                     </p>
                 </div>
             `;
 
-            // Masukkan foto ke kolom yang dapet gilirannya
             columns[columnIndex].innerHTML += htmlMarkup;
-        });
-
-        let loading = document.querySelectorAll(`.koleksi-img`);
-        loading.forEach((e) => {
-            e.style.filter = `contrast(1)`;
         });
 
     } catch (error) {
@@ -44,14 +43,20 @@ let lightbox = document.querySelector(`.lightbox`);
 
 // lightbox logic
 koleksi.addEventListener(`click`, (e) => {
-    if (e.target.classlist = `koleksi-img`) {
+    if (e.target.classList.contains(`klikOn`)) {
         lightbox.classList.remove(`lightbox-hilang`);
-        console.log(lightbox.src)
+        let preview = lightbox.querySelector(`img`);
+        preview.src = ``;
+        let linkPreview = e.target.src;
+
+        preview.src = linkPreview;
     }
 })
 
-lightbox.addEventListener(`click`, () => {
-    lightbox.classList.add(`lightbox-hilang`);
+document.addEventListener(`click`, (e) => {
+    if (e.target.classList.contains(`lightbox`)) {
+        lightbox.classList.add(`lightbox-hilang`);
+    }
 })
 
 document.addEventListener('DOMContentLoaded', fetchGallery);

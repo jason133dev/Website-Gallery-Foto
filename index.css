@@ -82,6 +82,15 @@ body {
     pointer-events: none;
 }
 
+.gambar-muncul {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    max-width: clamp(250px, 80%, 500px);
+    max-height: clamp(250px, 80%, 500px);
+    z-index: 1000;
+}
+
 /* container */
 .container {
     width: 100%;
@@ -294,6 +303,7 @@ body {
     box-shadow: 0px 0px 92px -21px rgba(0, 0, 0, 1) inset;
     -webkit-box-shadow: 0px 0px 92px -21px rgba(0, 0, 0, 1) inset;
     -moz-box-shadow: 0px 0px 92px -21px rgba(0, 0, 0, 1) inset;
+    pointer-events: none;
 }
 
 .card-img {
@@ -413,18 +423,19 @@ body {
     height: 100%;
     filter: contrast(.8);
     transition: scale .5s ease-in-out;
+    cursor: pointer;
 }
 
 .koleksi-img p {
     display: none;
     position: absolute;
     z-index: 2;
-    bottom: 2svh;
+    bottom: 2svw;
     left: 2svh;
-    font-size: 1rem;
+    font-size: clamp(.4rem, 1svw, 1rem);
+    letter-spacing: -1px;
     font-weight: lighter;
     font-family: montserrat-bold;
-    letter-spacing: -1px;
     white-space: nowrap;
     color: var(--warna-npc);
     color: #edefef;
@@ -432,7 +443,7 @@ body {
 
 .date {
     font-family: montserrat-regular;
-    font-size: clamp(.6rem, 1svw, 1svw);
+    font-size: clamp(.4rem, 1svw, 1svw);
     letter-spacing: -1px;
     color: var(--warna-npc);
 }
@@ -448,6 +459,7 @@ body {
     -webkit-box-shadow: 0px 0px 92px -21px rgba(0, 0, 0, 1) inset;
     -moz-box-shadow: 0px 0px 92px -21px rgba(0, 0, 0, 1) inset;
     transition: box-shadow .2s ease-in-out;
+    pointer-events: none;
 }
 
 .koleksi-img:hover::after {
@@ -470,6 +482,16 @@ body {
 @media(320px <=width <=768px) {
     .koleksi-img {
         border-radius: .3rem;
+    }
+
+    .koleksi-img p {
+        bottom: 1svw;
+        left: 1svh;
+        letter-spacing: 0px;
+    }
+
+    .date {
+        letter-spacing: 0px;
     }
 
     .koleksi {
@@ -548,5 +570,20 @@ body {
 
     50% {
         filter: brightness(2);
+    }
+}
+
+/* loading asset */
+.loading-asset {
+    animation: loading-asset .5s ease-in-out infinite alternate;
+}
+
+@keyframes loading-asset {
+    from {
+        opacity: .5;
+    }
+
+    to {
+        opacity: .8;
     }
 }
