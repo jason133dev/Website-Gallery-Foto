@@ -42,6 +42,11 @@
 
 ---
 
+## 16-05-2026
+- [ ] Buat `Skeleton loading`
+
+---
+
 
 # Backlog
 

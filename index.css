@@ -414,10 +414,9 @@ body {
     position: relative;
     border-radius: 1rem;
     overflow: hidden;
-    filter: contrast(0);
 }
 
-.koleksi-img img {
+.klikOn {
     display: block;
     width: 100%;
     height: 100%;
@@ -433,7 +432,6 @@ body {
     bottom: 2svw;
     left: 2svh;
     font-size: clamp(.4rem, 1svw, 1rem);
-    letter-spacing: -1px;
     font-weight: lighter;
     font-family: montserrat-bold;
     white-space: nowrap;
@@ -475,6 +473,22 @@ body {
 
 .koleksi-img:hover img {
     scale: 1.05;
+}
+
+/* skeleton */
+.skeleton-container {
+    border-radius: 1rem;
+    width: 31svw;
+    overflow: hidden;
+}
+
+
+.skeleton {
+    display: block;
+    width: 100%;
+    border-radius: 1rem;
+    aspect-ratio: 4 / 5;
+    background-color: rgb(255, 0, 0);
 }
 
 

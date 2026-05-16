@@ -12,10 +12,8 @@ async function fetchGallery() {
         data.forEach((item, index) => {
             const columnIndex = index % columns.length;
 
-            // STRATEGI LCP: 3-6 gambar pertama (tergantung jumlah kolom) dikasih eager
-            // Sisanya baru lazy. Kita pakai threshold 'index < 6' untuk jaga-jaga di layar desktop.
             const loadingStrategy = index < 6 ? 'eager' : 'lazy';
-            const priority = index < 3 ? 'high' : 'auto'; // VVIP buat 3 gambar teratas
+            const priority = index < 3 ? 'high' : 'auto';
 
             let htmlMarkup = `
                 <div class="koleksi-img">
