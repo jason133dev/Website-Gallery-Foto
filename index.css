@@ -486,9 +486,8 @@ body {
 .skeleton {
     display: block;
     width: 100%;
-    border-radius: 1rem;
     aspect-ratio: 4 / 5;
-    background-color: var(--warna-npc); 
+    background-color: var(--warna-npc);
 }
 
 
@@ -515,6 +514,10 @@ body {
 
     .column-koleksi {
         gap: .5rem;
+    }
+
+    .skeleton-container {
+        border-radius: .3rem;
     }
 }
 
