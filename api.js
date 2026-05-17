@@ -42,24 +42,34 @@ let lightbox = document.querySelector(`.lightbox`);
 // lightbox logic
 koleksi.addEventListener(`click`, (e) => {
     if (e.target.classList.contains(`klikOn`)) {
-        e.preventDefault();
         lightbox.classList.remove(`lightbox-hilang`);
         let preview = lightbox.querySelector(`img`);
         preview.src = ``;
         let linkPreview = e.target.src;
 
         preview.src = linkPreview;
-        return false;
     }
 })
 
 document.addEventListener(`click`, (e) => {
     if (e.target.classList.contains(`lightbox`)) {
-        e.preventDefault();
         lightbox.classList.add(`lightbox-hilang`);
-
-        return false;
     }
 })
+
+// disable tahan lama
+koleksi.addEventListener('contextmenu', (e) => {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+        return false;
+    }
+});
+
+lightbox.addEventListener('contextmenu', (e) => {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();``
+        return false;
+    }
+});
 
 document.addEventListener('DOMContentLoaded', fetchGallery);
