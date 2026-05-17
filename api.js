@@ -49,12 +49,16 @@ koleksi.addEventListener(`click`, (e) => {
         let linkPreview = e.target.src;
 
         preview.src = linkPreview;
+        return false;
     }
 })
 
 document.addEventListener(`click`, (e) => {
     if (e.target.classList.contains(`lightbox`)) {
+        e.preventDefault();
         lightbox.classList.add(`lightbox-hilang`);
+
+        return false;
     }
 })
 
