@@ -58,16 +58,9 @@ document.addEventListener(`click`, (e) => {
 })
 
 // disable tahan lama
-koleksi.addEventListener('contextmenu', (e) => {
+document.addEventListener('contextmenu', (e) => {
     if (e.target.tagName === 'IMG') {
         e.preventDefault();
-        return false;
-    }
-});
-
-lightbox.addEventListener('contextmenu', (e) => {
-    if (e.target.tagName === 'IMG') {
-        e.preventDefault();``
         return false;
     }
 });
