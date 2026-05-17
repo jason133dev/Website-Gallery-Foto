@@ -57,12 +57,4 @@ document.addEventListener(`click`, (e) => {
     }
 })
 
-// disable tahan lama
-document.addEventListener('contextmenu', (e) => {
-    if (e.target.tagName === 'IMG') {
-        e.preventDefault();
-        return false;
-    }
-});
-
 document.addEventListener('DOMContentLoaded', fetchGallery);

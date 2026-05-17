@@ -35,3 +35,11 @@ group.addEventListener('pointermove', (e) => {
     let walk = (x - startX) * sensitive;
     group.scrollLeft = scrollLeft - walk;
 });
+
+// disable tahan lama
+document.addEventListener('contextmenu', (e) => {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+        return false;
+    }
+});
