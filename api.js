@@ -36,25 +36,4 @@ async function fetchGallery() {
     }
 }
 
-let koleksi = document.querySelector(`.koleksi`);
-let lightbox = document.querySelector(`.lightbox`);
-
-// lightbox logic
-koleksi.addEventListener(`click`, (e) => {
-    if (e.target.classList.contains(`klikOn`)) {
-        lightbox.classList.remove(`lightbox-hilang`);
-        let preview = lightbox.querySelector(`img`);
-        preview.src = ``;
-        let linkPreview = e.target.src;
-
-        preview.src = linkPreview;
-    }
-})
-
-document.addEventListener(`click`, (e) => {
-    if (e.target.classList.contains(`lightbox`)) {
-        lightbox.classList.add(`lightbox-hilang`);
-    }
-})
-
 document.addEventListener('DOMContentLoaded', fetchGallery);

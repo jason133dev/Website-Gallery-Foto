@@ -1,5 +1,7 @@
 // asset
 let group = document.querySelector('.group');
+let koleksi = document.querySelector(`.koleksi`);
+let lightbox = document.querySelector(`.lightbox`);
 
 // slide logic
 let isDown = false;
@@ -35,6 +37,22 @@ group.addEventListener('pointermove', (e) => {
     let walk = (x - startX) * sensitive;
     group.scrollLeft = scrollLeft - walk;
 });
+
+// lightbox logic
+document.addEventListener(`click`, (e) => {
+    if (e.target.classList.contains(`klikOn`)) {
+        lightbox.classList.remove(`lightbox-hilang`);
+        let preview = lightbox.querySelector(`img`);
+        preview.src = ``;
+        let linkPreview = e.target.src;
+
+        preview.src = linkPreview;
+    }
+    
+    if (e.target.classList.contains(`lightbox`)) {
+        lightbox.classList.add(`lightbox-hilang`);
+    }
+})
 
 // disable tahan lama
 document.addEventListener('contextmenu', (e) => {
