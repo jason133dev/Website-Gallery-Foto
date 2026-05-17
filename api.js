@@ -42,6 +42,7 @@ let lightbox = document.querySelector(`.lightbox`);
 // lightbox logic
 koleksi.addEventListener(`click`, (e) => {
     if (e.target.classList.contains(`klikOn`)) {
+        e.preventDefault();
         lightbox.classList.remove(`lightbox-hilang`);
         let preview = lightbox.querySelector(`img`);
         preview.src = ``;
