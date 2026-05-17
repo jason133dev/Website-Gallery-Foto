@@ -27,7 +27,7 @@ group.addEventListener('pointermove', (e) => {
     if (!isDown) return;
     let x = e.pageX - group.offsetLeft;
 
-    let sensitive = window.innerWidth < 768 ? 3 : 2;
+    let sensitive = window.innerWidth < 768 ? 2 : 2;
     if (window.innerWidth < 768) {
         group.style.scrollBehavior = `auto`;
     }

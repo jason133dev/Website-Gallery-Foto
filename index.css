@@ -1,31 +1,31 @@
 @font-face {
     font-family: montserrat-regular;
-    src: url(Montserrat-Regular.ttf);
+    src: url(Asset/font/Montserrat-Regular.ttf);
 }
 
 @font-face {
     font-family: montserrat-bold;
-    src: url(Montserrat-Bold.ttf);
+    src: url(Asset/font/Montserrat-Bold.ttf);
 }
 
 @font-face {
     font-family: montserrat-thin;
-    src: url(Montserrat-Thin.ttf);
+    src: url(Asset/font/Montserrat-Thin.ttf);
 }
 
 @font-face {
     font-family: perfectlynineties-regular;
-    src: url(PerfectlyNineties-Regular.ttf);
+    src: url(Asset/font/PerfectlyNineties-Regular.ttf);
 }
 
 @font-face {
     font-family: perfectlynineties-regular-italic;
-    src: url(PerfectlyNineties-RegularItalic.ttf);
+    src: url(Asset/font/PerfectlyNineties-RegularItalic.ttf);
 }
 
 @font-face {
     font-family: perfectlynineties-bold-italic;
-    src: url(PerfectlyNineties-BoldItalic.ttf);
+    src: url(Asset/font/PerfectlyNineties-BoldItalic.ttf);
 }
 
 :root {
@@ -161,7 +161,6 @@ body {
     width: 33.3%;
 }
 
-/* hero */
 .hero {
     display: flex;
     justify-content: center;
@@ -169,7 +168,21 @@ body {
     flex-direction: column;
     text-align: center;
     height: 100dvh;
-    background-color: var(--background-color2);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, var(--background-color2) 10%, rgba(0, 0, 0, 0) 30%), url('Asset/Outer Space GIF by BBC.gif');
+    background-size: cover;
+    background-position: center;
+    opacity: .1;
 }
 
 #hero-teks2 {
