@@ -365,7 +365,7 @@ body {
 }
 
 .filter-tag {
-    display: flex;
+    display: none;
     justify-content: center;
     gap: 2rem;
     width: 100%;
