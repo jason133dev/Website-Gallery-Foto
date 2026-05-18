@@ -506,6 +506,10 @@ body {
 
 /* responsif */
 @media(320px <=width <=768px) {
+    .hero {
+        height: 80dvh;
+    }
+
     .koleksi-img {
         border-radius: .3rem;
     }
