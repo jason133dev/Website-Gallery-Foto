@@ -47,6 +47,11 @@
 
 ---
 
+## 18-05-2026
+- [x] Rehat dulu lagi fokus buat design
+
+---
+
 
 # Backlog
 
