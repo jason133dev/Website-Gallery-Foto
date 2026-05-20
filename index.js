@@ -2,6 +2,8 @@
 let group = document.querySelector('.group');
 let koleksi = document.querySelector(`.koleksi`);
 let lightbox = document.querySelector(`.lightbox`);
+let download = document.querySelector(`.download`);
+let dataSet = document.querySelector(`#dataset`);
 
 // slide logic
 let isDown = false;
@@ -41,16 +43,35 @@ group.addEventListener('pointermove', (e) => {
 // lightbox logic
 document.addEventListener(`click`, (e) => {
     if (e.target.classList.contains(`klikOn`)) {
+        download.style.display = `block`;
         lightbox.classList.remove(`lightbox-hilang`);
+
+        // preview
         let preview = lightbox.querySelector(`img`);
         preview.src = ``;
         let linkPreview = e.target.src;
 
+        // metadata
+        let metaDataJudul = e.target.dataset.judul;
+        let metaDataTanggal = e.target.dataset.tanggal;
+        let metaHtml = `
+            <p id="dataset">${metaDataJudul} <br>
+                <span class="date2">${metaDataTanggal}</span>
+            </p>
+        `;
+        dataSet.innerHTML = metaHtml;
+
         preview.src = linkPreview;
+        preview.addEventListener(`load`, () => {
+            download.classList.remove(`download-hilang`);
+        })
     }
     
     if (e.target.classList.contains(`lightbox`)) {
         lightbox.classList.add(`lightbox-hilang`);
+
+        download.style.display = `none`;
+        download.classList.add(`download-hilang`);
     }
 })
 

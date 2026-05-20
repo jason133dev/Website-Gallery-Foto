@@ -21,6 +21,8 @@ async function fetchGallery() {
                          alt="${item.judul}" 
                          loading="${loadingStrategy}" 
                          fetchpriority="${priority}"
+                         data-judul="${item.judul}"
+                         data-tanggal="${item.tanggal}"                         
                          class="klikOn">
                     <p>${item.judul} <br>
                         <span class="date">${item.tanggal}</span>
