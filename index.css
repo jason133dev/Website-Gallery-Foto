@@ -114,8 +114,9 @@ body {
 .gambar-muncul {
     display: block;
     max-width: 350px;
-    max-width: 350px;
+    max-width: 400px;
     object-fit: contain;
+    will-change: src;
 }
 
 .download {
@@ -142,6 +143,7 @@ body {
     width: 25px;
     translate: 0 1.5px;
     aspect-ratio: 1 / 1;
+    pointer-events: none;
 }
 
 

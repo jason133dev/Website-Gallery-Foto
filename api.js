@@ -13,7 +13,7 @@ async function fetchGallery() {
             const columnIndex = index % columns.length;
 
             const loadingStrategy = index < 6 ? 'eager' : 'lazy';
-            const priority = index < 3 ? 'high' : 'auto';
+            const priority = index < 3 ? 'high' : 'low';
 
             let htmlMarkup = `
                 <div class="koleksi-img">

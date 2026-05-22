@@ -59,10 +59,10 @@ document.addEventListener(`click`, (e) => {
                 <span class="date2">${metaDataTanggal}</span>
             </p>
         `;
-        dataSet.innerHTML = metaHtml;
 
         preview.src = linkPreview;
         preview.addEventListener(`load`, () => {
+            dataSet.innerHTML = metaHtml;
             download.classList.remove(`download-hilang`);
         })
     }
@@ -72,6 +72,10 @@ document.addEventListener(`click`, (e) => {
 
         download.style.display = `none`;
         download.classList.add(`download-hilang`);
+    }
+
+    if (e.target.classList.contains(`download`)) {
+        console.log(`Logic download`);
     }
 })
 
