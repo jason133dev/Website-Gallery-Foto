@@ -44,7 +44,6 @@ group.addEventListener('pointermove', (e) => {
 document.addEventListener(`click`, (e) => {
     if (e.target.classList.contains(`klikOn`)) {
         download.style.display = `block`;
-        lightbox.classList.remove(`lightbox-hilang`);
 
         // preview
         let preview = lightbox.querySelector(`img`);
@@ -62,6 +61,7 @@ document.addEventListener(`click`, (e) => {
 
         preview.src = linkPreview;
         preview.addEventListener(`load`, () => {
+            lightbox.classList.remove(`lightbox-hilang`);
             dataSet.innerHTML = metaHtml;
             download.classList.remove(`download-hilang`);
         })
