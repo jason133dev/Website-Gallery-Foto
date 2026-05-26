@@ -1,4 +1,4 @@
-const apiURL = "https://script.google.com/macros/s/AKfycbz-3g5AmdDeodGN-lV1W46NGCUvdT9_LFKUoevzEw9lzG83guF-VFlWuVIJ5f7Vc3Fm/exec"; 
+const apiURL = "https://script.google.com/macros/s/AKfycby8lR68eTevoCSrDz6EJYNZ49kUgQN4zQOzfUuPgeuFempgX4C1lpdaPTF0RLfA8hhX/exec"; 
 
 function renderKeGrid(data) {
     let columns = document.querySelectorAll('.column-koleksi');
@@ -25,6 +25,7 @@ function renderKeGrid(data) {
             </div>
         `;
         columns[columnIndex].innerHTML += htmlMarkup;
+        console.log(item.url)
     });
 }
 
