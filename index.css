@@ -120,14 +120,16 @@ body {
 }
 
 .download {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     bottom: 12px;
     right: 10px;
     width: 40px;
     height: 40px;
     border: none;
-    border-radius: 50%;
+    border-radius: 100%;
     color: #edefef;
     background-color: rgba(33, 33, 33, 0.427);
     z-index: 1010;
@@ -141,7 +143,6 @@ body {
 
 #icon-download {
     width: 25px;
-    translate: 0 1.5px;
     aspect-ratio: 1 / 1;
     pointer-events: none;
 }
@@ -217,6 +218,7 @@ body {
     width: 33.3%;
 }
 
+/* hero */
 .hero {
     display: flex;
     justify-content: center;
@@ -260,7 +262,7 @@ body {
 }
 
 #hero-button {
-    padding: 2.2cqh 2cqw;
+    padding: 13.574px 27.320px;
     font-size: clamp(0.6rem, 1cqw, 1.2rem);
     margin: 1rem 0;
     background-color: #edefef;
@@ -563,8 +565,8 @@ body {
 /* responsif */
 @media(320px <=width <=768px) {
     .gambar-muncul {
-        max-width: 250px;
-        max-width: 250px;
+        max-width: 320px;
+        max-width: 320px;
     }
 
     .hero {
@@ -596,6 +598,17 @@ body {
 
     .skeleton-container {
         border-radius: .3rem;
+    }
+}
+
+@media(320px <=width <=425px) {
+    .gambar-muncul {
+        max-width: 290px;
+        max-width: 290px;
+    }
+
+    #hero-button {
+        padding: 9.502px 19.124px;
     }
 }
 
