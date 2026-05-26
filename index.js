@@ -60,11 +60,17 @@ document.addEventListener(`click`, (e) => {
         `;
 
         preview.src = linkPreview;
-        preview.addEventListener(`load`, () => {
+
+        // munculin preview
+        function muncul() {
             lightbox.classList.remove(`lightbox-hilang`);
             dataSet.innerHTML = metaHtml;
             download.classList.remove(`download-hilang`);
-        })
+
+            preview.removeEventListener('load', muncul)
+        }
+
+        preview.addEventListener(`load`, muncul);
     }
     
     if (e.target.classList.contains(`lightbox`)) {
