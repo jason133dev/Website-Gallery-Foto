@@ -58,7 +58,8 @@
 ---
 
 ## 26-05-2026
-- [x] Update UI lightbox
+- [x] Benerin sistem API
+- [ ] Buat fitur download
 
 ---
 
