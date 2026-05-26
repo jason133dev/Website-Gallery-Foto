@@ -59,7 +59,7 @@
 
 ## 26-05-2026
 - [x] Benerin sistem API
-- [ ] Buat fitur download
+- [x] Buat fitur download
 
 ---
 

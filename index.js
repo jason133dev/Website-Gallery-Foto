@@ -42,6 +42,11 @@ group.addEventListener('pointermove', (e) => {
 
 // lightbox logic
 document.addEventListener(`click`, (e) => {
+    // metadata
+    let metaDataJudul = e.target.dataset.judul;
+    let metaDataTanggal = e.target.dataset.tanggal;
+    let metaDataDownload = e.target.dataset.download;
+
     if (e.target.classList.contains(`klikOn`)) {
         download.style.display = `block`;
 
@@ -50,9 +55,6 @@ document.addEventListener(`click`, (e) => {
         preview.src = ``;
         let linkPreview = e.target.src;
 
-        // metadata
-        let metaDataJudul = e.target.dataset.judul;
-        let metaDataTanggal = e.target.dataset.tanggal;
         let metaHtml = `
             <p id="dataset">${metaDataJudul} <br>
                 <span class="date2">${metaDataTanggal}</span>
@@ -71,17 +73,17 @@ document.addEventListener(`click`, (e) => {
         }
 
         preview.addEventListener(`load`, muncul);
+
+        download.addEventListener(`click`, () => {
+            window.open(metaDataDownload, '_blank');
+        })
     }
-    
+
     if (e.target.classList.contains(`lightbox`)) {
         lightbox.classList.add(`lightbox-hilang`);
 
         download.style.display = `none`;
         download.classList.add(`download-hilang`);
-    }
-
-    if (e.target.classList.contains(`download`)) {
-        console.log(`Logic download`);
     }
 })
 
