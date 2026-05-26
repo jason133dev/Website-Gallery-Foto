@@ -2,6 +2,7 @@
 let group = document.querySelector('.group');
 let koleksi = document.querySelector(`.koleksi`);
 let lightbox = document.querySelector(`.lightbox`);
+let preview = lightbox.querySelector(`img`);
 let download = document.querySelector(`.download`);
 let dataSet = document.querySelector(`#dataset`);
 
@@ -47,11 +48,11 @@ document.addEventListener(`click`, (e) => {
     let metaDataTanggal = e.target.dataset.tanggal;
     let metaDataDownload = e.target.dataset.download;
 
+    // logic preview
     if (e.target.classList.contains(`klikOn`)) {
         download.style.display = `block`;
 
         // preview
-        let preview = lightbox.querySelector(`img`);
         preview.src = ``;
         let linkPreview = e.target.src;
 
@@ -74,9 +75,14 @@ document.addEventListener(`click`, (e) => {
 
         preview.addEventListener(`load`, muncul);
 
-        download.addEventListener(`click`, () => {
+        // download
+        function downloadWindow() {
             window.open(metaDataDownload, '_blank');
-        })
+
+            download.removeEventListener(`click`, downloadWindow);
+        }
+
+        download.addEventListener(`click`, downloadWindow);
     }
 
     if (e.target.classList.contains(`lightbox`)) {
