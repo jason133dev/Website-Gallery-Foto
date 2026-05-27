@@ -16,26 +16,35 @@ group.addEventListener('pointerdown', (e) => {
     group.style.cursor = 'grabbing';
     startX = e.pageX - group.offsetLeft;
     scrollLeft = group.scrollLeft;
-});
 
-group.addEventListener('pointerleave', () => {
-    isDown = false;
-    group.style.cursor = 'grab';
+    if (window.innerWidth < 768) {
+        group.style.scrollBehavior = `auto`;
+    }
 });
 
 group.addEventListener('pointerup', () => {
     isDown = false;
     group.style.cursor = 'grab';
+
+    if (window.innerWidth < 768) {
+        group.style.scrollBehavior = `smooth`;
+    }
+});
+
+group.addEventListener('pointerleave', () => {
+    isDown = false;
+    group.style.cursor = 'grab';
+
+    if (window.innerWidth < 768) {
+        group.style.scrollBehavior = `smooth`;
+    }
 });
 
 group.addEventListener('pointermove', (e) => {
     if (!isDown) return;
     let x = e.pageX - group.offsetLeft;
 
-    let sensitive = window.innerWidth < 768 ? 2 : 2;
-    if (window.innerWidth < 768) {
-        group.style.scrollBehavior = `auto`;
-    }
+    let sensitive = 2;
 
     let walk = (x - startX) * sensitive;
     group.scrollLeft = scrollLeft - walk;

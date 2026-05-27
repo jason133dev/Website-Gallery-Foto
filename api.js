@@ -25,7 +25,6 @@ function renderKeGrid(data) {
             </div>
         `;
         columns[columnIndex].innerHTML += htmlMarkup;
-        console.log(item.url)
     });
 }
 
