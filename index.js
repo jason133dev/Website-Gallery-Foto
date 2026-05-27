@@ -6,46 +6,88 @@ let preview = lightbox.querySelector(`img`);
 let download = document.querySelector(`.download`);
 let dataSet = document.querySelector(`#dataset`);
 
+// // slide logic
+// let isDown = false;
+// let startX;
+// let scrollLeft;
+
+// group.addEventListener('pointerdown', (e) => {
+//     isDown = true;
+//     group.style.cursor = 'grabbing';
+//     startX = e.pageX - group.offsetLeft;
+//     scrollLeft = group.scrollLeft;
+
+//     if (window.innerWidth < 768) {
+//         group.style.scrollBehavior = `auto`;
+//     }
+// });
+
+// group.addEventListener('pointerup', () => {
+//     isDown = false;
+//     group.style.cursor = 'grab';
+
+//     if (window.innerWidth < 768) {
+//         group.style.scrollBehavior = `smooth`;
+//     }
+// });
+
+// group.addEventListener('pointerleave', () => {
+//     isDown = false;
+//     group.style.cursor = 'grab';
+
+//     if (window.innerWidth < 768) {
+//         group.style.scrollBehavior = `smooth`;
+//     }
+// });
+
+// group.addEventListener('pointermove', (e) => {
+//     if (!isDown) return;
+//     let x = e.pageX - group.offsetLeft;
+
+//     let sensitive = 2;
+
+//     let walk = (x - startX) * sensitive;
+//     group.scrollLeft = scrollLeft - walk;
+// });
+
 // slide logic
 let isDown = false;
 let startX;
 let scrollLeft;
 
 group.addEventListener('pointerdown', (e) => {
+    // 💡 JIKA DI HP, KITA STOP JS-NYA DI SINI
+    if (window.innerWidth < 768) return; 
+
     isDown = true;
     group.style.cursor = 'grabbing';
+    group.style.scrollBehavior = 'auto';
     startX = e.pageX - group.offsetLeft;
     scrollLeft = group.scrollLeft;
-
-    if (window.innerWidth < 768) {
-        group.style.scrollBehavior = `auto`;
-    }
 });
 
 group.addEventListener('pointerup', () => {
+    if (window.innerWidth < 768) return; // Stop JS di HP
+
     isDown = false;
     group.style.cursor = 'grab';
-
-    if (window.innerWidth < 768) {
-        group.style.scrollBehavior = `smooth`;
-    }
+    group.style.scrollBehavior = 'smooth';
 });
 
 group.addEventListener('pointerleave', () => {
+    if (window.innerWidth < 768) return; // Stop JS di HP
+
     isDown = false;
     group.style.cursor = 'grab';
-
-    if (window.innerWidth < 768) {
-        group.style.scrollBehavior = `smooth`;
-    }
+    group.style.scrollBehavior = 'smooth';
 });
 
 group.addEventListener('pointermove', (e) => {
-    if (!isDown) return;
+    // 💡 DI HP KITA RETURN BIAR GAK BENTROK SAMA SWIPE ASLI HP
+    if (window.innerWidth < 768 || !isDown) return; 
+    
     let x = e.pageX - group.offsetLeft;
-
     let sensitive = 2;
-
     let walk = (x - startX) * sensitive;
     group.scrollLeft = scrollLeft - walk;
 });
