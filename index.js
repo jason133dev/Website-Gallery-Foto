@@ -47,8 +47,6 @@ document.addEventListener(`click`, (e) => {
 
     // logic preview
     if (e.target.classList.contains(`klikOn`)) {
-        download.style.display = `block`;
-
         // preview
         preview.src = ``;
         let linkPreview = e.target.src;
@@ -73,18 +71,15 @@ document.addEventListener(`click`, (e) => {
         preview.addEventListener(`load`, muncul);
 
         // download
-        function downloadWindow() {
-            window.open(metaDataDownload, '_blank');
-
-            download.removeEventListener(`click`, downloadWindow);
-        }
-
-        download.addEventListener(`click`, downloadWindow);
+        download.href = metaDataDownload;
+        download.setAttribute(`download`, `${metaDataJudul}.jpg`);
     }
 
     if (e.target.classList.contains(`lightbox`)) {
         lightbox.classList.add(`lightbox-hilang`);
 
+        download.href = `#`;
+        download.setAttribute(`download`, `#`);
         download.style.display = `none`;
         download.classList.add(`download-hilang`);
     }

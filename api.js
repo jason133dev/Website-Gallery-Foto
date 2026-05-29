@@ -1,4 +1,4 @@
-const apiURL = "https://script.google.com/macros/s/AKfycbwCRKNoOo58UAsCxhxtx8TxMaM-atRYiM4O73u8FQ4_V_Cg-ba9D8wcacRua_0tmxVQ/exec"; 
+const apiURL = "https://script.google.com/macros/s/AKfycbwTksyxuz4fZJYN1pFhsOt-1RHxyE4F9eYiLnyf_slkW_P0iQsoy47x9SgNxI7Euu0e/exec"; 
 
 function renderKeGrid(data) {
     let columns = document.querySelectorAll('.column-koleksi');
