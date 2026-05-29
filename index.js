@@ -40,6 +40,7 @@ group.addEventListener('pointermove', (e) => {
 
 // lightbox logic
 document.addEventListener(`click`, (e) => {
+    download.style.display = `flex`;
     // metadata
     let metaDataJudul = e.target.dataset.judul;
     let metaDataTanggal = e.target.dataset.tanggal;
@@ -69,11 +70,20 @@ document.addEventListener(`click`, (e) => {
         }
 
         preview.addEventListener(`load`, muncul);
-
-        // download
-        download.href = metaDataDownload;
-        download.setAttribute(`download`, `${metaDataJudul}.jpg`);
     }
+
+    // download
+    function downloadFile(urlDownload) {
+        fetch(urlDownload)
+            .then(r => r.json())
+            .then(d => {
+                const a = document.createElement("a"); // ← ini INVISIBLE, user tidak lihat
+                a.href = "data:" + d.mime + ";base64," + d.base64;
+                a.download = d.nama;
+                a.click(); // ← langsung diklik otomatis, lalu hilang
+            });
+    }
+    download.onclick = () => {downloadFile(metaDataDownload)};
 
     if (e.target.classList.contains(`lightbox`)) {
         lightbox.classList.add(`lightbox-hilang`);

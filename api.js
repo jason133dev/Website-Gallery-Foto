@@ -1,8 +1,15 @@
-const apiURL = "https://script.google.com/macros/s/AKfycbwTksyxuz4fZJYN1pFhsOt-1RHxyE4F9eYiLnyf_slkW_P0iQsoy47x9SgNxI7Euu0e/exec"; 
+const apiURL = "https://script.google.com/macros/s/AKfycbwFnBXaFBNuUV4psDx6b43_d9SXnMNCg7-gTWfmvgthXUb1woU956sYl1fFyEexhwpf/exec";
+
+let halamanSekarang = 1;
+let totalHalaman = 1;
+let sedangLoad = false;
 
 function renderKeGrid(data) {
     let columns = document.querySelectorAll('.column-koleksi');
-    columns.forEach(col => col.innerHTML = '');
+
+    if (halamanSekarang === 1) {
+        columns.forEach(col => col.innerHTML = '');
+    }
 
     data.forEach((item, index) => {
         const columnIndex = index % columns.length;
@@ -28,19 +35,44 @@ function renderKeGrid(data) {
     });
 }
 
-window.panggilData = (data) => {
+function muatData(page) {
+    if (sedangLoad) return;
+    sedangLoad = true;
+
+    const script = document.createElement('script');
+    script.src = `${apiURL}?page=${page}`;
+    document.body.appendChild(script);
+}
+
+window.panggilData = (response) => {
     try {
-        renderKeGrid(data);
+        totalHalaman = response.totalHalaman;
+        renderKeGrid(response.data);
+        sedangLoad = false;
+
+        if (halamanSekarang < totalHalaman) {
+            observer.observe(sentinel);
+        } else {
+            observer.unobserve(sentinel);
+        }
     } catch (error) {
-        console.error("Waduh, gagal memproses data foto:", error);
+        console.error("Gagal memproses data:", error);
+        sedangLoad = false;
     }
 };
 
-function gallery() {
-    const newScript = document.createElement('script');
-    newScript.src = apiURL;
-    newScript.type = `module`;
-    document.body.appendChild(newScript);
-}
+const sentinel = document.querySelector('#sentinel');
 
-document.addEventListener('DOMContentLoaded', gallery);
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !sedangLoad) {
+            halamanSekarang++;
+            observer.unobserve(sentinel);
+            muatData(halamanSekarang);
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    muatData(1);
+});

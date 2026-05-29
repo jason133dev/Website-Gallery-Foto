@@ -63,6 +63,12 @@
 
 ---
 
+## 29-05-2026
+- [x] Buat sistem download file
+- [x] Buat sistem lazy load dengan API
+
+---
+
 
 # Backlog
 
