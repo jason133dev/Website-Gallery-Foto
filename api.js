@@ -78,7 +78,7 @@ const observer = new IntersectionObserver((entries) => {
             observer.unobserve(sentinel);
 
             // generate skeleton
-            createSkeleton(3);
+            createSkeleton(9);
 
             muatData(halamanSekarang);
         }
