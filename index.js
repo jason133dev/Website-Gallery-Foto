@@ -4,6 +4,9 @@ let koleksi = document.querySelector(`.koleksi`);
 let lightbox = document.querySelector(`.lightbox`);
 let preview = lightbox.querySelector(`img`);
 let download = document.querySelector(`.download`);
+let iconDownload = document.querySelector(`#icon-download`);
+let loader = document.querySelector(`.loader`);
+let checkMark = document.querySelector(`.check-mark`);
 let dataSet = document.querySelector(`#dataset`);
 
 // slide logic
@@ -73,26 +76,69 @@ document.addEventListener(`click`, (e) => {
     }
 
     // download
-    function downloadFile(urlDownload) {
-        fetch(urlDownload)
-            .then(r => r.json())
-            .then(d => {
-                const a = document.createElement("a"); // ← ini INVISIBLE, user tidak lihat
-                a.href = "data:" + d.mime + ";base64," + d.base64;
-                a.download = d.nama;
-                a.click(); // ← langsung diklik otomatis, lalu hilang
-                console.log(`tes`);
-            });
-    }
-    download.onclick = () => {downloadFile(metaDataDownload)};
+    let guard = false;
 
+    async function downloadFile(urlDownload) {
+        if (guard) return;
+
+        if (!metaDataDownload || metaDataDownload === `undefined`) {
+            console.log("⚠️ [Guard] Request blocked: Oi sabar! Datanya belom siap, jangan di-spam!");
+            return;
+        }
+
+        guard = true;
+        try {
+            const response = await fetch(urlDownload);
+
+            if (!response.ok) {
+                throw new Error(`Server overload atau status ${response.status}`);
+            }
+
+            const d = await response.json();
+
+            const a = document.createElement("a"); // ← ini INVISIBLE, user tidak lihat
+            a.href = "data:" + d.mime + ";base64," + d.base64;
+            a.download = d.nama;
+            a.click();
+
+            // checkmark logic
+            iconDownload.style.display = `none`;
+            loader.style.display = `none`;
+            checkMark.style.display = `block`;
+            guard = false;
+
+        } catch (error) {
+            console.error("🚨 [DownloadSystem] Download gagal bray! Detail:", error.message);
+
+            guard = false;
+            iconDownload.style.display = `block`;
+            loader.style.display = `none`;
+            checkMark.style.display = `none`;
+        }
+    }
+    download.onclick = () => {
+        downloadFile(metaDataDownload);
+    };
+
+    if (e.target.classList.contains(`download`)) {
+        iconDownload.style.display = `none`;
+        loader.style.display = `block`;
+    }
+
+    // tutup lightbox
     if (e.target.classList.contains(`lightbox`)) {
+        if (guard) return;
         lightbox.classList.add(`lightbox-hilang`);
 
         download.href = `#`;
         download.setAttribute(`download`, `#`);
         download.style.display = `none`;
         download.classList.add(`download-hilang`);
+
+        // reset logic icon icon download
+        iconDownload.style.display = `block`;
+        loader.style.display = `none`;
+        checkMark.style.display = `none`;
     }
 })
 

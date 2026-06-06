@@ -70,7 +70,8 @@
 ---
 
 ## 6-06-2026
-- [ ] Sistem peringatan sudah terdownload
+- [x] Sistem peringatan sudah terdownload
+- [ ] Buat sistem disable untuk keluar dari lightbox ketika download
 
 ---
 

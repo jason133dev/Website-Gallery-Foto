@@ -129,11 +129,12 @@ body {
     width: 40px;
     height: 40px;
     border: none;
-    border-radius: 100%;
+    border-radius: 50%;
     color: #edefef;
     background-color: rgba(33, 33, 33, 0.427);
     z-index: 1010;
     transition: opacity 1s ease-in-out;
+    cursor: pointer;
 }
 
 .download-hilang {
@@ -144,10 +145,30 @@ body {
 #icon-download {
     display: block;
     width: 25px;
-    aspect-ratio: 1 / 1;
+    height: 25px;
     pointer-events: none;
 }
 
+.loader {
+    display: none;
+    border: 2px solid rgb(255, 255, 255);
+    border-left-color: transparent;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin89345 1s linear infinite;
+    pointer-events: none;
+}
+
+.check-mark {
+    display: none;
+    width: 9px;
+    height: 15px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    animation: checkmark 1s ease-in-out forwards;
+}
 
 /* container */
 .container {
@@ -321,7 +342,7 @@ body {
     padding: 2rem 0;
     overflow-x: auto;
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;gi
+    -webkit-overflow-scrolling: touch;
 }
 
 .group::-webkit-scrollbar {
@@ -697,5 +718,34 @@ body {
 
     to {
         opacity: .8;
+    }
+}
+
+/* spinner */
+@keyframes spin89345 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* checkmark */
+@keyframes checkmark {
+    0% {
+        border-right: transparent;
+        border-bottom: transparent;
+    }
+
+    90% {
+        border-right: transparent;
+        border-bottom: 2px solid #ffffff;
+    }
+
+    100% {
+        border-right: 2px solid #ffffff;
+        border-bottom: 2px solid #ffffff;
     }
 }
