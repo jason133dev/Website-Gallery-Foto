@@ -81,6 +81,7 @@ document.addEventListener(`click`, (e) => {
                 a.href = "data:" + d.mime + ";base64," + d.base64;
                 a.download = d.nama;
                 a.click(); // ← langsung diklik otomatis, lalu hilang
+                console.log(`tes`);
             });
     }
     download.onclick = () => {downloadFile(metaDataDownload)};
