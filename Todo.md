@@ -79,7 +79,7 @@
 # Backlog
 
 ### [FE] UI/UX Improvements
-* Lorem ipsum.
+* UI/UX versi hp dibuat seperti pinterest
 
 
 ### [BE] Backend
