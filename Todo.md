@@ -72,7 +72,7 @@
 ## 6-06-2026
 - [x] Sistem peringatan sudah terdownload
 - [ ] Buat sistem disable untuk keluar dari lightbox ketika download
-- [ ] Ganti penataan gallery jadi display grid
+- [x] Ganti penataan gallery jadi display grid
 
 ---
 

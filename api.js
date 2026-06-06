@@ -1,18 +1,17 @@
 const apiURL = "https://script.google.com/macros/s/AKfycbwFnBXaFBNuUV4psDx6b43_d9SXnMNCg7-gTWfmvgthXUb1woU956sYl1fFyEexhwpf/exec";
 
+// asset
+let koleksi2 = document.querySelector('.koleksi');
+
 let halamanSekarang = 1;
 let totalHalaman = 1;
 let sedangLoad = false;
 
 function renderKeGrid(data) {
-    let columns = document.querySelectorAll('.column-koleksi');
-
-    if (halamanSekarang === 1) {
-        columns.forEach(col => col.innerHTML = '');
-    }
+    let skeletons = koleksi2.querySelectorAll('.skeleton');
+    skeletons.forEach(skel => skel.remove());
 
     data.forEach((item, index) => {
-        const columnIndex = index % columns.length;
         const loadingStrategy = index < 6 ? 'eager' : 'lazy';
         const priority = index < 3 ? 'high' : 'low';
 
@@ -31,7 +30,7 @@ function renderKeGrid(data) {
                 </p>
             </div>
         `;
-        columns[columnIndex].innerHTML += htmlMarkup;
+        koleksi2.innerHTML += htmlMarkup;
     });
 }
 
@@ -61,13 +60,26 @@ window.panggilData = (response) => {
     }
 };
 
+// sentinel
 const sentinel = document.querySelector('#sentinel');
+
+function createSkeleton(n) {
+    for(i = 0; i < n; i++) {
+        let createSkeleton = document.createElement(`div`)
+        createSkeleton.className = `skeleton loading-asset`;
+        koleksi2.appendChild(createSkeleton);
+    }
+}
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting && !sedangLoad) {
             halamanSekarang++;
             observer.unobserve(sentinel);
+
+            // generate skeleton
+            createSkeleton(3);
+
             muatData(halamanSekarang);
         }
     });
