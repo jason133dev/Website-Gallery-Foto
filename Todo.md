@@ -69,9 +69,9 @@
 
 ---
 
-## 6-06-2026
+## 06-06-2026
 - [x] Sistem peringatan sudah terdownload
-- [ ] Buat sistem disable untuk keluar dari lightbox ketika download
+- [x] Buat sistem disable untuk keluar dari lightbox ketika download
 - [x] Ganti penataan gallery jadi display grid
 
 ---

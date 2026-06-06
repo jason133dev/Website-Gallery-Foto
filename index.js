@@ -8,6 +8,7 @@ let iconDownload = document.querySelector(`#icon-download`);
 let loader = document.querySelector(`.loader`);
 let checkMark = document.querySelector(`.check-mark`);
 let dataSet = document.querySelector(`#dataset`);
+let downloadDefender = document.querySelector(`.download-defender`);
 
 // slide logic
 let isDown = false;
@@ -106,6 +107,7 @@ document.addEventListener(`click`, (e) => {
             loader.style.display = `none`;
             checkMark.style.display = `block`;
             guard = false;
+            downloadDefender.style.pointerEvents = `none`;
 
         } catch (error) {
             console.error("🚨 [DownloadSystem] Download gagal bray! Detail:", error.message);
@@ -123,11 +125,11 @@ document.addEventListener(`click`, (e) => {
     if (e.target.classList.contains(`download`)) {
         iconDownload.style.display = `none`;
         loader.style.display = `block`;
+        downloadDefender.style.pointerEvents = `all`;
     }
 
     // tutup lightbox
     if (e.target.classList.contains(`lightbox`)) {
-        if (guard) return;
         lightbox.classList.add(`lightbox-hilang`);
 
         download.href = `#`;
