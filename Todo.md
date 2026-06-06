@@ -76,6 +76,11 @@
 
 ---
 
+## 07-06-2026
+- [x] Buat 2fr di hp
+- [x] Atur Border Radius di hp
+
+---
 
 # Backlog
 
