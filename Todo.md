@@ -77,8 +77,8 @@
 ---
 
 ## 07-06-2026
-- [ ] Buat 2fr di hp
-- [ ] Atur Border Radius di hp
+- [x] Buat 2 repeat di hp
+- [x] Atur Border Radius di hp
 
 ---
 
