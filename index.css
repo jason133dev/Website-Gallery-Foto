@@ -334,7 +334,7 @@ body {
 
 .npc {
     font-family: montserrat-thin;
-    font-size: clamp(.7rem, 1.2svw, 1.5svw);
+    font-size: 16.932px;
     color: #edefef89;
 }
 
