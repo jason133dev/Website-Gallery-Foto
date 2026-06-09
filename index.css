@@ -623,7 +623,7 @@ body {
         gap: .5rem;
     }
 
-    .skeleton-container {
+    .skeleton {
         border-radius: .3rem;
     }
 }

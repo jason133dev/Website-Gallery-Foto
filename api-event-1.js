@@ -1,7 +1,8 @@
-const apiURL = "https://script.google.com/macros/s/AKfycbyLd6va9d7lQm6rSxjma9Cakb8BM0JO8uvKWzeF4WlzWVAH-J4-9a0UaVEQTmRu-PGD/exec";
+const apiURL = "https://script.google.com/macros/s/AKfycbyWD5AaKlpjDX92mdyR3NxgN-qUzTps86sVr6eiF266FhaeICWPIvvKk92U7Kb4rW1V/exec";
 
 // asset
 let koleksi2 = document.querySelector('.koleksi');
+let main2 = document.querySelector(`.main2`);
 
 let halamanSekarang = 1;
 let totalHalaman = 1;
@@ -30,7 +31,7 @@ function renderKeGrid(data) {
                 </p>
             </div>
         `;
-        koleksi2.innerHTML += htmlMarkup;
+       koleksi2.insertAdjacentHTML('beforeend', htmlMarkup);
     });
 }
 
@@ -48,6 +49,7 @@ window.panggilData = (response) => {
         totalHalaman = response.totalHalaman;
         renderKeGrid(response.data);
         sedangLoad = false;
+        main2.innerHTML = `${response.kategoriKeluarga} Photo`;
 
         if (halamanSekarang < totalHalaman) {
             observer.observe(sentinel);

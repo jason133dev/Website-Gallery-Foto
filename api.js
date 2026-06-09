@@ -1,4 +1,4 @@
-const apiURL = "https://script.google.com/macros/s/AKfycbyLd6va9d7lQm6rSxjma9Cakb8BM0JO8uvKWzeF4WlzWVAH-J4-9a0UaVEQTmRu-PGD/exec";
+const apiURL = "https://script.google.com/macros/s/AKfycbyhypdNWiHkKMJG-vU6dXTz-63VjUfynfgem25xzdczOwb8OwIVo3IE-oIx1pPSkqHQ/exec";
 
 // asset
 let koleksi2 = document.querySelector('.koleksi');
@@ -30,7 +30,7 @@ function renderKeGrid(data) {
                 </p>
             </div>
         `;
-        koleksi2.innerHTML += htmlMarkup;
+        koleksi2.insertAdjacentHTML('beforeend', htmlMarkup);
     });
 }
 

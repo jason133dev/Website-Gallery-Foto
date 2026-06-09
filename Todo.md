@@ -83,7 +83,7 @@
 ---
 
 ## 09-06-2026
-- [ ] Buat UI/UX events
+- [x] Buat UI/UX events
 
 ---
 
