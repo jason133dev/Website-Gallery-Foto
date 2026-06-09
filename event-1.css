@@ -1,0 +1,39 @@
+/* event */
+.event {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: 100dvh;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-teks {
+    font-family: var(--font-display1);
+    font-size: clamp(2rem, 6svw, 6svw);
+    color: #edefef;
+    position: fixed;
+}
+
+/* koleksi */
+.title2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1.5rem;
+    color: #edefef;
+    width: 95%;
+    border-bottom: var(--pemisah);
+}
+
+.koleksi-container {
+    background-color: rgba(54, 54, 54, 0.508);
+    backdrop-filter: blur(10px);
+
+    -webkit-mask-image: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 1) 1%,
+            rgba(0, 0, 0, 1) 100%);
+}

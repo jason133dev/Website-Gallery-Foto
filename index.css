@@ -316,25 +316,6 @@ body {
     background-color: rgb(93, 93, 93);
 }
 
-/* event */
-.event {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    height: 100dvh;
-    position: relative;
-    overflow: hidden;
-}
-
-.event-teks {
-    font-family: var(--font-display1);
-    font-size: clamp(2rem, 6svw, 6svw);
-    color: #edefef;
-    position: fixed;
-}
-
 /* group */
 .title {
     display: flex;

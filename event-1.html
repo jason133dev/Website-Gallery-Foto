@@ -6,24 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="event-1.css">
     <link rel="preconnect" href="https://lh3.googleusercontent.com">
     <link rel="preconnect" href="https://script.google.com">
 </head>
 
 <body>
+    <!-- download-defender -->
+    <div class="download-defender"></div>
+
+    <!-- lightbox -->
+    <div class="lightbox lightbox-hilang">
+
+        <div class="container-gambar-muncul">
+            <img src="" class="gambar-muncul">
+
+            <p id="dataset"> <br>
+                <span class="date2"></span>
+            </p>
+
+            <button onclick="" class="download download-hilang">
+                <img src="Asset/download.svg" id="icon-download">
+                <div class="loader"></div>
+                <div class="check-mark"></div>
+            </button>
+        </div>
+    </div>
+
     <!-- event -->
-     <div class="event">
+    <div class="event">
         <h1 class="event-teks">Lorem Ipsum</h1>
-     </div>
+    </div>
 
     <!-- koleksi -->
     <div class="koleksi-container scroll">
         <div class="title2">
-            <h1 class="main2">MPLS</h1>
-            <div class="filter">
-                <img src="Asset/filter.webp" class="filter-logo">
-                <p class="npc2">Filter</p>
-            </div>
+            <h1 class="main2">x Photo</h1>
         </div>
 
         <div class="koleksi">
@@ -38,10 +56,12 @@
     </div>
 
     <!-- script -->
-    <script src="index.js"></script>
-    <script src="api.js"></script>
+    <script src="event-1.js"></script>
+    <script src="api-event-1.js"></script>
 
     <!-- smooth scroll -->
     <script type="module" src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     <script type="module" src="lenis.js"></script>
 </body>
+
+</html>

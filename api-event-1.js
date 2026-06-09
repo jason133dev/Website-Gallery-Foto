@@ -1,4 +1,4 @@
-const apiURL = "https://script.google.com/macros/s/AKfycbwFnBXaFBNuUV4psDx6b43_d9SXnMNCg7-gTWfmvgthXUb1woU956sYl1fFyEexhwpf/exec";
+const apiURL = "https://script.google.com/macros/s/AKfycbyLd6va9d7lQm6rSxjma9Cakb8BM0JO8uvKWzeF4WlzWVAH-J4-9a0UaVEQTmRu-PGD/exec";
 
 // asset
 let koleksi2 = document.querySelector('.koleksi');
@@ -39,7 +39,7 @@ function muatData(page) {
     sedangLoad = true;
 
     const script = document.createElement('script');
-    script.src = `${apiURL}?page=${page}`;
+    script.src = `${apiURL}?page=${page}&kategori=keluarga`;
     document.body.appendChild(script);
 }
 
