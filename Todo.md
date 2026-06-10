@@ -87,6 +87,11 @@
 
 ---
 
+## 10-06-2026
+- [x] Ganti display grid menjadi flex kembali
+
+---
+
 # Backlog
 
 ### [FE] UI/UX Improvements

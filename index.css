@@ -500,20 +500,25 @@ body {
 }
 
 .koleksi {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    padding: 16px;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
     width: 100%;
     height: max-content;
     min-height: 90dvh;
-    align-items: start;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .koleksi-img {
     position: relative;
     border-radius: 1rem;
     overflow: hidden;
+    margin-bottom: 10px;
 }
 
 .klikOn {
@@ -580,6 +585,7 @@ body {
     display: block;
     width: 100%;
     aspect-ratio: 4 / 5;
+    margin-bottom: 10px;
     border-radius: 1rem;
     background-color: var(--warna-npc);
 }
@@ -602,6 +608,7 @@ body {
 
     .koleksi-img {
         border-radius: .5rem;
+        margin-bottom: 0;
     }
 
     .koleksi-img p {
@@ -619,12 +626,17 @@ body {
         padding: 2rem .5rem;
     }
 
-    .column-koleksi {
+    .column {
         gap: .5rem;
+    }
+
+    #column-3 {
+        display: none;
     }
 
     .skeleton {
         border-radius: .3rem;
+        margin-bottom: 0;
     }
 }
 
@@ -636,10 +648,6 @@ body {
 
     #hero-button {
         padding: 9.502px 19.124px;
-    }
-
-    .koleksi {
-        grid-template-columns: repeat(2, 1fr);
     }
 }
 
