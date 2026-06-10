@@ -18,7 +18,12 @@ function renderKeGrid(data) {
         const loadingStrategy = index < 6 ? 'eager' : 'lazy';
         const priority = index < 3 ? 'high' : 'low';
 
-        let sortir = index % 3;
+        let sortir;
+        if (window.innerWidth < 768) {
+            sortir = index % 2;
+        } else {
+            sortir = index % 3;
+        }
 
         let htmlMarkup = `
             <div class="koleksi-img">
@@ -70,14 +75,20 @@ window.panggilData = (response) => {
 const sentinel = document.querySelector('#sentinel');
 
 function createSkeleton(n) {
-    for(i = 0; i < n; i++) {
-        let column = document.querySelectorAll(`.column`);
-        let sortir = i % 3;
+    let column = document.querySelectorAll(`.column`);
+
+    for (i = 0; i < n; i++) {
+        let sortir;
+        if (window.innerWidth < 768) {
+            sortir = i % 2;
+        } else {
+            sortir = i % 3;
+        }
 
         let createSkeleton = document.createElement(`div`);
 
         createSkeleton.className = `skeleton loading-asset`;
-        
+
         column[sortir].appendChild(createSkeleton);
     }
 }
