@@ -142,7 +142,12 @@ document.addEventListener(`click`, (e) => {
         loader.style.display = `none`;
         checkMark.style.display = `none`;
     }
-})
+
+    // upload
+    if (e.target.classList.contains(`logo`)) {
+        console.log (`Link uplaod foto: https://drive.google.com/drive/folders/1FF5dbdUdc3c4Qk_EhERYrekGRMyXpTh3?usp=sharing`);
+    }
+});
 
 // disable tahan lama
 document.addEventListener('contextmenu', (e) => {
