@@ -144,7 +144,7 @@ document.addEventListener(`click`, (e) => {
     }
 
     // upload
-    if (e.target.classList.contains(`logo`)) {
+    if (e.target.classList.contains(`logo-osis`)) {
         console.log (`Link uplaod foto: https://drive.google.com/drive/folders/1FF5dbdUdc3c4Qk_EhERYrekGRMyXpTh3?usp=sharing`);
     }
 });

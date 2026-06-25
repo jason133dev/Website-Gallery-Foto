@@ -203,6 +203,7 @@ body {
 }
 
 #logo {
+    display: block;
     width: 50px;
     height: 50px;
 }
@@ -241,6 +242,61 @@ body {
     letter-spacing: -1px;
     color: var(--warna-npc);
     text-decoration: none;
+}
+
+.container-hamburger {
+    display: none;
+    justify-content: flex-end;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70svw;
+    height: 100svh;
+    background-color: #edefef;
+    backdrop-filter: blur(10px);
+    z-index: 1500;
+}
+
+#close {
+    display: block;
+    margin-right: 5rem;
+}
+
+#menu {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-size: 3rem;
+    font-family: montserrat-thin;
+    color: var(--warna-hitam-dasar);
+    text-align: right;
+    margin: 1rem;
+    margin-right: .5rem;
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 9%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-right: .5rem;
+    width: 100%;
+}
+
+.dropdown-list {
+    display: block;
+    width: 100%;
+    padding: .5rem;
+    text-align: right;
+    text-decoration: none;
+    color: var(--warna-hitam-dasar);
 }
 
 .bagi {
@@ -611,7 +667,17 @@ body {
 }
 
 /* responsif */
-@media(425px <= width <768px) {
+@media(width < 1024px) {
+    .list {
+        display: none;
+    }
+
+    .container-hamburger {
+        display: flex;
+    }
+}
+
+@media(320px <=width <768px) {
     .gambar-muncul {
         max-width: 400px;
         max-width: 400px;
@@ -655,7 +721,26 @@ body {
     }
 }
 
-@media(320px <=width < 425px) {
+@media(320px <=width <= 500px) {
+    .navbar {
+        height: 50px;
+    }
+
+    #logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    #hamburger {
+        width: 16px;
+        height: 16px;
+    }
+
+    .navbar h1 {
+        font-size: 15px;
+        overflow: hidden;
+    }
+
     .gambar-muncul {
         max-width: 300px;
         max-height: 400px;

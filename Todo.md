@@ -92,6 +92,17 @@
 
 ---
 
+## 25-06-2026
+- [x] Update API
+- [x] Update UI
+
+---
+
+## 26-06-2026
+- [ ] Lanjut buat sidebar
+
+---
+
 # Backlog
 
 ### [FE] UI/UX Improvements
