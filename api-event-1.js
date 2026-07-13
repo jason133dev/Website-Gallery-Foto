@@ -1,4 +1,4 @@
-const apiURL = "https://script.google.com/macros/s/AKfycbyYGGItnwIJK9FRRvun4m3xeRXruIvWOuT5hiLxrfNGUQr78zzggucoUQ5h08zEl5ec/exec";
+const apiURL = "https://script.google.com/macros/s/AKfycbzaIEQG2yjnZPzRLFKN-5zqrr1CE-kv-Qc416T_qUXGx_sJbJQs7L9NlmFUhGkl7kmP/exec";
 
 // asset
 let koleksi2 = document.querySelector('.koleksi');
@@ -49,7 +49,7 @@ function muatData(page) {
     sedangLoad = true;
 
     const script = document.createElement('script');
-    script.src = `${apiURL}?page=${page}&kategori=keluarga`;
+    script.src = `${apiURL}?page=${page}&kategori=mpls`;
     document.body.appendChild(script);
 }
 
@@ -58,7 +58,7 @@ window.panggilData = (response) => {
         totalHalaman = response.totalHalaman;
         renderKeGrid(response.data);
         sedangLoad = false;
-        main2.innerHTML = `${response.kategoriKeluarga} Photo`;
+        main2.innerHTML = `${response.jumlahPhoto} Photo`;
 
         if (halamanSekarang < totalHalaman) {
             observer.observe(sentinel);
