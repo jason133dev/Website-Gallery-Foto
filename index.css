@@ -4,6 +4,11 @@
 }
 
 @font-face {
+    font-family: montserrat-semibold;
+    src: url(Asset/font/Montserrat-SemiBold.ttf);
+}
+
+@font-face {
     font-family: montserrat-bold;
     src: url(Asset/font/Montserrat-Bold.ttf);
 }
@@ -249,21 +254,25 @@ body {
     justify-content: flex-end;
 }
 
+/* sidebar */
 .sidebar {
-    display: none;
     position: fixed;
     top: 0;
     right: 0;
-    width: 70svw;
+    width: 40svw;
     height: 100svh;
     background-color: #edefef;
     backdrop-filter: blur(10px);
     z-index: 1500;
+    translate: 1000px;
+    transition: translate 1s ease;
 }
 
 #close {
     display: block;
-    margin-right: 5rem;
+    width: 19.2px;
+    height: 19.2px;
+    margin-bottom: 3.1rem;
 }
 
 #menu {
@@ -271,23 +280,16 @@ body {
     align-items: center;
     justify-content: right;
     font-size: 3rem;
-    font-family: montserrat-thin;
+    line-height: 1;
+    font-family: montserrat-semibold;
     color: var(--warna-hitam-dasar);
     text-align: right;
-    margin: 1rem;
-    margin-right: .5rem;
+    padding: 1rem;
 }
 
 .dropdown {
     display: flex;
     flex-direction: column;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 9%;
-    left: 0;
-    right: 0;
-    margin: auto;
-    margin-right: .5rem;
     width: 100%;
 }
 
@@ -295,9 +297,14 @@ body {
     display: block;
     width: 100%;
     padding: .5rem;
+    padding-right: 1rem;
     text-align: right;
     text-decoration: none;
     color: var(--warna-hitam-dasar);
+}
+
+.dropdown a:hover {
+    background-color: #dfdfdf;
 }
 
 .bagi {
@@ -722,7 +729,7 @@ body {
     }
 }
 
-@media(320px <=width <= 500px) {
+@media(320px <=width <=500px) {
     .navbar {
         height: 50px;
     }

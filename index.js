@@ -9,6 +9,7 @@ let loader = document.querySelector(`.loader`);
 let checkMark = document.querySelector(`.check-mark`);
 let dataSet = document.querySelector(`#dataset`);
 let downloadDefender = document.querySelector(`.download-defender`);
+let sideBar = document.querySelector(`.sidebar`);
 
 // slide logic
 let isDown = false;
@@ -141,6 +142,18 @@ document.addEventListener(`click`, (e) => {
         iconDownload.style.display = `block`;
         loader.style.display = `none`;
         checkMark.style.display = `none`;
+    }
+
+    // hamburger
+    if (e.target.classList.contains(`hbr`)) {
+        sideBar.style.translate = `0px`;
+        lightbox.classList.remove(`lightbox-hilang`);
+    }
+
+    // close sidebar
+    if (e.target.classList.contains(`cls`)) {
+        sideBar.style.translate = `1000px`;
+        lightbox.classList.add(`lightbox-hilang`);
     }
 
     // upload
