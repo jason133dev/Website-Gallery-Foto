@@ -99,7 +99,13 @@
 ---
 
 ## 26-06-2026
-- [ ] Lanjut buat sidebar
+- [x] Lanjut buat sidebar
+
+---
+
+## 16-07-2026
+- [] Atur jarak padding antar foto di hp agar lebih lebar
+- [] Fix bug rotate di hp agar saat mencapai width tertentu langsung reload
 
 ---
 
