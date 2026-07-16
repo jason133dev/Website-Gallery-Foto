@@ -104,8 +104,8 @@
 ---
 
 ## 16-07-2026
-- [] Atur jarak padding antar foto di hp agar lebih lebar
-- [] Fix bug rotate di hp agar saat mencapai width tertentu langsung reload
+- [ ] Atur jarak padding antar foto di hp agar lebih lebar
+- [ ] Fix bug rotate di hp agar saat mencapai width tertentu langsung reload
 
 ---
 
