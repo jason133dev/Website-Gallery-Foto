@@ -169,3 +169,10 @@ document.addEventListener('contextmenu', (e) => {
         return false;
     }
 });
+
+// hp saat rotate
+let mediaQuery = window.matchMedia(`(orientation: landscape)`);
+
+mediaQuery.addEventListener(`change`, () => {
+    location.reload();
+});
