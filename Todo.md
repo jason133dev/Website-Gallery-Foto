@@ -104,9 +104,9 @@
 ---
 
 ## 16-07-2026
-- [ ] Atur jarak padding antar foto di hp agar lebih lebar
-- [ ] Fix bug rotate di hp agar saat mencapai width tertentu langsung reload
-- [ ] Buat Lightbox bisa di zoom
+- [x] Atur jarak padding antar foto di hp agar lebih lebar
+- [x] Fix bug rotate di hp agar saat mencapai width tertentu langsung reload
+- [x] Buat Lightbox bisa di zoom
 
 ---
 

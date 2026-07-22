@@ -711,8 +711,17 @@ body {
     }
 
     .koleksi {
-        gap: .5rem;
-        padding: 2rem .5rem;
+        gap: .6rem;
+        padding: 1rem .6rem;
+    }
+
+    .koleksi-img:hover p {
+        display: none;
+    }
+
+    .koleksi-img:hover::after {
+        box-shadow: none;
+        cursor: pointer;
     }
 
     .column {
@@ -729,7 +738,7 @@ body {
     }
 }
 
-@media(320px <=width <=500px) {
+@media(320px <=width < 425px) {
     .navbar {
         height: 50px;
     }
