@@ -6,6 +6,7 @@ let koleksi2 = document.querySelector('.koleksi');
 let halamanSekarang = 1;
 let totalHalaman = 1;
 let sedangLoad = false;
+let lastUpdate = document.querySelector(`#last-updated`);
 
 function renderKeGrid(data) {
     let skeletons = koleksi2.querySelectorAll('.skeleton');
@@ -41,6 +42,34 @@ function renderKeGrid(data) {
         `;
         column[sortir].insertAdjacentHTML('beforeend', htmlMarkup);
     });
+
+    // Last updated
+    let tanggalTerakhir = data[data.length - 1].tanggal;
+    let pengubahTanggal = (tanggalTerakhir) => {
+        let tanggalPisah = tanggalTerakhir.toLowerCase().split(" ");
+        let tanggal = tanggalPisah[0];
+        let bulan = tanggalPisah[1];
+        let tahun = tanggalPisah[2];
+        
+        let bulanIndo = {
+            januari: "01",
+            februari: "02",
+            maret: "03",
+            april: "04",
+            mei: "05",
+            juni: "06",
+            juli: "07",
+            agustus: "08",
+            september: "09",
+            oktober: "10",
+            november: "11",
+            desember: "12"
+        };
+
+        return `${tanggal}/${bulanIndo[bulan]}/${tahun}`;
+    }
+
+    lastUpdate.innerHTML = `Last Updated: ${pengubahTanggal(tanggalTerakhir)}`;
 }
 
 function muatData(page) {
