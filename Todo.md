@@ -110,6 +110,15 @@
 
 ---
 
+## 02-10-2026
+- [ ] Bagusin UI Side Bar
+- [ ] Tes simulasi maksimal pengunjung website
+- [ ] Buat "See more" di card
+- [ ] Bagusin logic drag card
+
+
+---
+
 # Backlog
 
 ### [FE] UI/UX Improvements
