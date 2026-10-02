@@ -76,19 +76,48 @@ function renderKeGrid(data) {
     }
 }
 
+// awal load
 function muatData(page) {
     if (sedangLoad) return;
     sedangLoad = true;
 
-    const script = document.createElement('script');
-    script.src = `${apiURL}?page=${page}`;
-    document.body.appendChild(script);
+    // local storage
+    let dataLocalApi = localStorage.getItem(`page-${page}`);
+
+    if (dataLocalApi) {
+        // ambil data yang sudah disimpan dengan key
+        let konversiData = JSON.parse(dataLocalApi);
+
+        // ambil data total halaman dari data yang sudah disimpan
+        totalHalaman = konversiData.totalHalaman;
+
+        renderKeGrid(konversiData.data);
+        sedangLoad = false;
+
+        // ditulis ulang lagi karena if yang di window.panggilData bersifat local
+        if (halamanSekarang < totalHalaman) {
+            observer.observe(sentinel);
+        } else {
+            observer.unobserve(sentinel);
+        }
+    } else {
+        const script = document.createElement('script');
+        script.src = `${apiURL}?page=${page}`;
+        document.body.appendChild(script);
+    }
 }
 
-window.panggilData = (response) => {
+// Panggil data dari API yang digenerate oleh muatData bagian else
+// karena tidak ada di local storage
+window.panggilData = (responseApi) => {
     try {
-        totalHalaman = response.totalHalaman;
-        renderKeGrid(response.data);
+        totalHalaman = responseApi.totalHalaman;
+
+        // simpan responseApi ke local storage dengan key page-{halamanSekarang}
+        // dan datanya diubah jadi string dengan stringify
+        localStorage.setItem(`page-${halamanSekarang}`, JSON.stringify(responseApi));
+
+        renderKeGrid(responseApi.data);
         sedangLoad = false;
 
         if (halamanSekarang < totalHalaman) {
@@ -108,7 +137,7 @@ const sentinel = document.querySelector('#sentinel');
 function createSkeleton(n) {
     let column = document.querySelectorAll(`.column`);
 
-    for (i = 0; i < n; i++) {
+    for (let i = 0; i < n; i++) {
         let sortir;
         if (window.innerWidth < 768) {
             sortir = i % 2;
@@ -132,11 +161,13 @@ const observer = new IntersectionObserver((entries) => {
             // generate skeleton
             createSkeleton(9);
 
+            // load halaman selanjutnya
             muatData(halamanSekarang);
         }
     });
 });
 
+// pemicu awal load
 document.addEventListener('DOMContentLoaded', () => {
     muatData(1);
 })

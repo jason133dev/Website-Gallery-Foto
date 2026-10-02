@@ -116,6 +116,7 @@
 - [x] Ganti "Show All" jadi petunjuk
 - [ ] Buat Arrow di event-1 dan event-2
 - [ ] Buat Home di event-1 dan event-2
+- [x] Buat Sistem Local Storage
 - [ ] Tes simulasi maksimal pengunjung website
 
 
