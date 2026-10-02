@@ -225,6 +225,7 @@ body {
     align-items: center;
     list-style: none;
     animation-delay: .2s;
+    cursor: pointer;
 }
 
 #list1 {
@@ -301,6 +302,7 @@ body {
     text-align: right;
     text-decoration: none;
     color: var(--warna-hitam-dasar);
+    cursor: pointer;
 }
 
 .dropdown a:hover {
@@ -398,7 +400,7 @@ body {
 
 .npc {
     font-family: montserrat-thin;
-    font-size: 16.932px;
+    font-size: clamp(.7rem, 1.2svw, 1.5svw);
     color: #edefef89;
 }
 
@@ -430,7 +432,7 @@ body {
     margin: 0 5svw;
 }
 
-.event-1 {
+.hapus-link {
     text-decoration: none;
 }
 
@@ -483,6 +485,7 @@ body {
     width: 100%;
     height: 100%;
     filter: contrast(.8);
+    opacity: .8;
 }
 
 .information {
@@ -539,37 +542,6 @@ body {
 .filter {
     display: flex;
     align-items: center;
-}
-
-.filter-logo {
-    width: 20px;
-    height: 20px;
-    margin-right: 2px;
-}
-
-.filter-tag {
-    display: none;
-    justify-content: center;
-    gap: 2rem;
-    width: 100%;
-    height: max-content;
-}
-
-.filter-tag-button {
-    padding: 2.2cqh 2cqw;
-    font-size: clamp(0.6rem, 1cqw, 1.2rem);
-    margin: 1rem 0;
-    background: transparent;
-    outline: none;
-    border: var(--border-estetik);
-    color: #edefef;
-    border-radius: 2rem;
-    animation-delay: .6s;
-}
-
-.filter-tag-button:hover {
-    background-color: rgb(86, 86, 86);
-    cursor: pointer;
 }
 
 .koleksi-container {
@@ -689,6 +661,10 @@ body {
     .gambar-muncul {
         max-width: 400px;
         max-width: 400px;
+    }
+
+    .sidebar {
+        width: 80svw;
     }
 
     .hero {

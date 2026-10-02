@@ -10,6 +10,7 @@ let checkMark = document.querySelector(`.check-mark`);
 let dataSet = document.querySelector(`#dataset`);
 let downloadDefender = document.querySelector(`.download-defender`);
 let sideBar = document.querySelector(`.sidebar`);
+let dropDownList = document.querySelectorAll(`.dropdown-list`);
 
 // slide logic
 let isDown = false;
@@ -156,6 +157,11 @@ document.addEventListener(`click`, (e) => {
         lightbox.classList.add(`lightbox-hilang`);
     }
 
+    if (e.target.classList.contains(`dropdown-list`)) {
+        sideBar.style.translate = `1000px`;
+        lightbox.classList.add(`lightbox-hilang`);
+    }
+
     // upload
     if (e.target.classList.contains(`logo-osis`)) {
         console.log (`Link uplaod foto: https://drive.google.com/drive/folders/1FF5dbdUdc3c4Qk_EhERYrekGRMyXpTh3?usp=sharing`);
@@ -175,4 +181,4 @@ let mediaQuery = window.matchMedia(`(orientation: landscape)`);
 
 mediaQuery.addEventListener(`change`, () => {
     location.reload();
-});
+}); 

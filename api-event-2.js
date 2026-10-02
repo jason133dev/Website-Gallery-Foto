@@ -49,7 +49,7 @@ function muatData(page) {
     sedangLoad = true;
 
     const script = document.createElement('script');
-    script.src = `${apiURL}?page=${page}&kategori=mpls`;
+    script.src = `${apiURL}?page=${page}&kategori=nskr`;
     document.body.appendChild(script);
 }
 

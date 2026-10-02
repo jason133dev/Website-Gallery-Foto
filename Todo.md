@@ -111,10 +111,12 @@
 ---
 
 ## 02-10-2026
-- [ ] Bagusin UI Side Bar
+- [x] Bagusin UI Side Bar
+- [x] Permak UI/UX Utama
+- [x] Ganti "Show All" jadi petunjuk
+- [ ] Buat Arrow di event-1 dan event-2
+- [ ] Buat Home di event-1 dan event-2
 - [ ] Tes simulasi maksimal pengunjung website
-- [ ] Buat "See more" di card
-- [ ] Bagusin logic drag card
 
 
 ---

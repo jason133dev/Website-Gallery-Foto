@@ -1,4 +1,4 @@
-const apiURL = "https://script.google.com/macros/s/AKfycbyYGGItnwIJK9FRRvun4m3xeRXruIvWOuT5hiLxrfNGUQr78zzggucoUQ5h08zEl5ec/exec";
+const apiURL = "https://script.google.com/macros/s/AKfycbzCAsAFRLXTbtp5rJgIOgVIOennFZMVF85kDcqwKVA005maqrXDc0MlZnujc-DUHfm0/exec";
 
 // asset
 let koleksi2 = document.querySelector('.koleksi');
@@ -44,13 +44,13 @@ function renderKeGrid(data) {
     });
 
     // Last updated
-    let tanggalTerakhir = data[data.length - 1].tanggal;
+    let tanggalTerakhir = data[0].tanggal;
     let pengubahTanggal = (tanggalTerakhir) => {
         let tanggalPisah = tanggalTerakhir.toLowerCase().split(" ");
         let tanggal = tanggalPisah[0];
         let bulan = tanggalPisah[1];
         let tahun = tanggalPisah[2];
-        
+
         let bulanIndo = {
             januari: "01",
             februari: "02",
@@ -69,7 +69,11 @@ function renderKeGrid(data) {
         return `${tanggal}/${bulanIndo[bulan]}/${tahun}`;
     }
 
-    lastUpdate.innerHTML = `Last Updated: ${pengubahTanggal(tanggalTerakhir)}`;
+    if (window.innerWidth < 768) {
+        lastUpdate.innerHTML = `Last Updated: <br>${pengubahTanggal(tanggalTerakhir)}`;
+    } else {
+        lastUpdate.innerHTML = `Last Updated: ${pengubahTanggal(tanggalTerakhir)}`;
+    }
 }
 
 function muatData(page) {
@@ -135,4 +139,4 @@ const observer = new IntersectionObserver((entries) => {
 
 document.addEventListener('DOMContentLoaded', () => {
     muatData(1);
-});
+})
