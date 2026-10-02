@@ -48,14 +48,30 @@ function muatData(page) {
     if (sedangLoad) return;
     sedangLoad = true;
 
-    const script = document.createElement('script');
-    script.src = `${apiURL}?page=${page}&kategori=nskr`;
-    document.body.appendChild(script);
+    let dataLocalApi = localStorage.getItem(`page-${page}-event-2`);
+    if (dataLocalApi) {
+        let konversiData = JSON.parse(dataLocalApi);
+        renderKeGrid(konversiData.data);
+        totalHalaman = konversiData.totalHalaman;
+        sedangLoad = false;
+        main2.innerHTML = `${konversiData.jumlahPhoto} Photo`;
+
+        if (halamanSekarang < totalHalaman) {
+            observer.observe(sentinel);
+        } else {
+            observer.unobserve(sentinel);
+        }
+    } else {
+        const script = document.createElement('script');
+        script.src = `${apiURL}?page=${page}&kategori=nskr`;
+        document.body.appendChild(script);
+    }
 }
 
 window.panggilData = (response) => {
     try {
         totalHalaman = response.totalHalaman;
+        localStorage.setItem(`page-${halamanSekarang}-event-2`, JSON.stringify(response));
         renderKeGrid(response.data);
         sedangLoad = false;
         main2.innerHTML = `${response.jumlahPhoto} Photo`;
