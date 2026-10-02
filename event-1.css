@@ -23,7 +23,7 @@
     inset: 0;
     filter: contrast(.8);
     animation: fadeIn 1s ease-in-out;
-    background-image: url(./asset/mpls-foto.JPG);
+    background-image: url(Asset/mpls-foto.JPG);
     background-size: cover;
     background-position: center;
 }
