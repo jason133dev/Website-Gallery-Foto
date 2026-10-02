@@ -118,6 +118,7 @@
 - [ ] Buat Home di event-1 dan event-2
 - [x] Buat Sistem Local Storage
 - [ ] Tes simulasi maksimal pengunjung website
+- [ ] Buat event-1 dan event-2 bisa di zoom
 
 
 ---
