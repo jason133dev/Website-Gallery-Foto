@@ -7,7 +7,9 @@ let halamanSekarang = 1;
 let totalHalaman = 1;
 let sedangLoad = false;
 let lastUpdate = document.querySelector(`#last-updated`);
+let timer24Jam = 24 * 60 * 60 * 1000;
 
+// pengcetak sesuai logic backend di bawah
 function renderKeGrid(data) {
     let skeletons = koleksi2.querySelectorAll('.skeleton');
     skeletons.forEach(skel => skel.remove());
@@ -76,6 +78,8 @@ function renderKeGrid(data) {
     }
 }
 
+// -----------------------------------------------------------------------------------------
+
 // awal load
 function muatData(page) {
     if (sedangLoad) return;
@@ -88,19 +92,31 @@ function muatData(page) {
         // ambil data yang sudah disimpan dengan key
         let konversiData = JSON.parse(dataLocalApi);
 
-        // ambil data total halaman dari data yang sudah disimpan
-        totalHalaman = konversiData.totalHalaman;
+        // cek sudah lewat 24 jam atau belum
+        if (Date.now() < konversiData.timer) {
+            // ambil data total halaman dari data yang sudah disimpan
+            totalHalaman = konversiData.dataApi.totalHalaman;
 
-        renderKeGrid(konversiData.data);
-        sedangLoad = false;
+            renderKeGrid(konversiData.dataApi.data);
+            sedangLoad = false;
 
-        // ditulis ulang lagi karena if yang di window.panggilData bersifat local
-        if (halamanSekarang < totalHalaman) {
-            observer.observe(sentinel);
+            // ditulis ulang lagi karena if yang di window.panggilData bersifat local
+            if (halamanSekarang < totalHalaman) {
+                observer.observe(sentinel);
+            } else {
+                observer.unobserve(sentinel);
+            }
         } else {
-            observer.unobserve(sentinel);
+            // reset jika sudah lebih dari 24 jam
+            localStorage.removeItem(`page-${page}`);
+
+            // panggil yang baru karena sudah lewat 24 jam
+            const script = document.createElement('script');
+            script.src = `${apiURL}?page=${page}`;
+            document.body.appendChild(script);
         }
     } else {
+        // jika tidak ada di local storage, maka ambil data dari API
         const script = document.createElement('script');
         script.src = `${apiURL}?page=${page}`;
         document.body.appendChild(script);
@@ -113,9 +129,11 @@ window.panggilData = (responseApi) => {
     try {
         totalHalaman = responseApi.totalHalaman;
 
-        // simpan responseApi ke local storage dengan key page-{halamanSekarang}
-        // dan datanya diubah jadi string dengan stringify
-        localStorage.setItem(`page-${halamanSekarang}`, JSON.stringify(responseApi));
+        let dataGabungan = {
+            timer: Date.now() + timer24Jam,
+            dataApi: responseApi
+        };
+        localStorage.setItem(`page-${halamanSekarang}`, JSON.stringify(dataGabungan));
 
         renderKeGrid(responseApi.data);
         sedangLoad = false;

@@ -7,6 +7,7 @@ let main2 = document.querySelector(`.main2`);
 let halamanSekarang = 1;
 let totalHalaman = 1;
 let sedangLoad = false;
+let timer24Jam = 24 * 60 * 60 * 1000;
 
 function renderKeGrid(data) {
     let skeletons = koleksi2.querySelectorAll('.skeleton');
@@ -44,6 +45,8 @@ function renderKeGrid(data) {
     });
 }
 
+// -----------------------------------------------------------------------------------------
+
 function muatData(page) {
     if (sedangLoad) return;
     sedangLoad = true;
@@ -52,17 +55,28 @@ function muatData(page) {
 
     if (dataLocalApi) {
         let konversiData = JSON.parse(dataLocalApi);
-        renderKeGrid(konversiData.data);
-        totalHalaman = konversiData.totalHalaman;
 
-        sedangLoad = false;
+        // cek sudah lewat 24 jam atau belum
+        if (Date.now() < konversiData.timer) {
+            // ambil data total halaman dari data yang sudah disimpan
+            totalHalaman = konversiData.dataApi.totalHalaman;
 
-        main2.innerHTML = `${konversiData.jumlahPhoto} Photo`;
+            renderKeGrid(konversiData.dataApi.data);
+            sedangLoad = false;
+            main2.innerHTML = `${konversiData.dataApi.jumlahPhoto} Photo`;
 
-        if (halamanSekarang < totalHalaman) {
-            observer.observe(sentinel);
+            if (halamanSekarang < totalHalaman) {
+                observer.observe(sentinel);
+            } else {
+                observer.unobserve(sentinel);
+            }
         } else {
-            observer.unobserve(sentinel);
+            // reset jika sudah lewat 24 jam
+            localStorage.removeItem(`page-${page}-event-1`);
+
+            const script = document.createElement('script');
+            script.src = `${apiURL}?page=${page}&kategori=mpls`;
+            document.body.appendChild(script);
         }
     } else {
         const script = document.createElement('script');
@@ -75,8 +89,12 @@ window.panggilData = (responseApi) => {
     try {
         totalHalaman = responseApi.totalHalaman;
 
-        localStorage.setItem(`page-${halamanSekarang}-event-1`, JSON.stringify(responseApi));
+        let dataGabungan = {
+            timer: Date.now() + timer24Jam,
+            dataApi: responseApi
+        };
 
+        localStorage.setItem(`page-${halamanSekarang}-event-1`, JSON.stringify(dataGabungan));
         renderKeGrid(responseApi.data);
 
         sedangLoad = false;

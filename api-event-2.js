@@ -7,6 +7,7 @@ let main2 = document.querySelector(`.main2`);
 let halamanSekarang = 1;
 let totalHalaman = 1;
 let sedangLoad = false;
+let timer24Jam = 24 * 60 * 60 * 1000;
 
 function renderKeGrid(data) {
     let skeletons = koleksi2.querySelectorAll('.skeleton');
@@ -44,22 +45,40 @@ function renderKeGrid(data) {
     });
 }
 
+// -----------------------------------------------------------------------------------------
+
 function muatData(page) {
     if (sedangLoad) return;
     sedangLoad = true;
 
+    // local storage
     let dataLocalApi = localStorage.getItem(`page-${page}-event-2`);
+
     if (dataLocalApi) {
         let konversiData = JSON.parse(dataLocalApi);
-        renderKeGrid(konversiData.data);
-        totalHalaman = konversiData.totalHalaman;
-        sedangLoad = false;
-        main2.innerHTML = `${konversiData.jumlahPhoto} Photo`;
 
-        if (halamanSekarang < totalHalaman) {
-            observer.observe(sentinel);
+        // cek sudah lewat 24 jam atau belum
+        if (Date.now() < konversiData.timer) {
+            // ambil data total halaman dari data yang sudah disimpan
+            totalHalaman = konversiData.dataApi.totalHalaman;
+
+            renderKeGrid(konversiData.dataApi.data);
+            sedangLoad = false;
+
+            main2.innerHTML = `${konversiData.dataApi.jumlahPhoto} Photo`;
+
+            if (halamanSekarang < totalHalaman) {
+                observer.observe(sentinel);
+            } else {
+                observer.unobserve(sentinel);
+            }
         } else {
-            observer.unobserve(sentinel);
+            // reset jika sudah lewat 24 jam
+            localStorage.removeItem(`page-${page}-event-2`);
+
+            const script = document.createElement('script');
+            script.src = `${apiURL}?page=${page}&kategori=nskr`;
+            document.body.appendChild(script);
         }
     } else {
         const script = document.createElement('script');
@@ -71,7 +90,13 @@ function muatData(page) {
 window.panggilData = (response) => {
     try {
         totalHalaman = response.totalHalaman;
-        localStorage.setItem(`page-${halamanSekarang}-event-2`, JSON.stringify(response));
+
+        let dataGabungan = {
+            timer: Date.now() + timer24Jam,
+            dataApi: response
+        };
+
+        localStorage.setItem(`page-${halamanSekarang}-event-2`, JSON.stringify(dataGabungan));
         renderKeGrid(response.data);
         sedangLoad = false;
         main2.innerHTML = `${response.jumlahPhoto} Photo`;
