@@ -10,6 +10,23 @@
     overflow: hidden;
 }
 
+.home-btn {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    inset: 0;
+    padding: 2rem 2rem;
+}
+
+.home-btn:hover {
+    scale: 1.15;
+}
+
+.icon-home {
+    width: 35px;
+    height: 35px;
+}
+
 .event-teks {
     font-family: var(--font-display1);
     font-size: clamp(2rem, 6svw, 6svw);
@@ -22,7 +39,8 @@
     position: fixed;
     inset: 0;
     filter: contrast(.8);
-    animation: fadeIn 1s ease-in-out;
+    opacity: 0.5;
+    animation: fadeIngit 1s ease-in-out;
     background-image: url(Asset/nusakarsa-foto.jpeg);
     background-size: cover;
     background-position: center;
@@ -34,7 +52,26 @@
     }
 
     100% {
-        opacity: 0.8;
+        opacity: 0.5;
+    }
+}
+
+/* arrow */
+.arrow {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 2rem;
+    animation: arrow-loop 3s ease infinite;
+}
+
+@keyframes arrow-loop {
+    0%, 100% {
+        translate: 0 -25px;
+    }
+
+    50% {
+        translate: 0 10px;
     }
 }
 

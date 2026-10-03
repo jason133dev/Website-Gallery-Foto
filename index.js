@@ -133,6 +133,7 @@ document.addEventListener(`click`, (e) => {
     // tutup lightbox
     if (e.target.classList.contains(`lightbox`)) {
         lightbox.classList.add(`lightbox-hilang`);
+        sideBar.style.translate = `1000px`;
 
         download.href = `#`;
         download.setAttribute(`download`, `#`);

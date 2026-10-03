@@ -114,12 +114,11 @@
 - [x] Bagusin UI Side Bar
 - [x] Permak UI/UX Utama
 - [x] Ganti "Show All" jadi petunjuk
-- [ ] Buat Arrow di event-1 dan event-2
-- [ ] Buat Home di event-1 dan event-2
+- [x] Buat Arrow di event-1 dan event-2
+- [x] Buat Home di event-1 dan event-2
 - [x] Buat Sistem Local Storage
-- [ ] Tes simulasi maksimal pengunjung website
-- [ ] Buat event-1 dan event-2 bisa di zoom
-- [ ] Benerin bug hamburger di hp
+- [x] Buat event-1 dan event-2 bisa di zoom
+- [x] Benerin bug hamburger di hp
 
 
 ---
