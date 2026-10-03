@@ -123,11 +123,7 @@
 
 ---
 
-# Backlog
+## 04-10-2026
+- [ ] Bagusin UI versi di hp
+- [ ] Buat bisa diinstall dan ada notif untuk install
 
-### [FE] UI/UX Improvements
-* UI/UX versi hp dibuat seperti pinterest
-
-
-### [BE] Backend
-* Lorem ipsum.
