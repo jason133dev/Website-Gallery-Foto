@@ -17,6 +17,9 @@ let systemBtn = document.querySelector(`#system-button`);
 // guard
 let guard = false;
 
+// buat download
+let metaDataDownloadBtn;
+
 // lightbox logic
 document.addEventListener(`click`, (e) => {
     download.style.display = `flex`;
@@ -30,6 +33,9 @@ document.addEventListener(`click`, (e) => {
         // preview
         preview.src = ``;
         let linkPreview = e.target.src;
+
+        // buat download
+        metaDataDownloadBtn = download.dataset.download = metaDataDownload;
 
         let metaHtml = `
             <p id="dataset">${metaDataJudul} <br>
@@ -62,6 +68,10 @@ document.addEventListener(`click`, (e) => {
 
         guard = true;
         try {
+            iconDownload.style.display = `none`;
+            loader.style.display = `block`;
+            downloadDefender.style.pointerEvents = `all`;
+
             const response = await fetch(urlDownload);
 
             if (!response.ok) {
@@ -102,18 +112,12 @@ document.addEventListener(`click`, (e) => {
         }
     }
 
-    download.onclick = () => {
-        downloadFile(metaDataDownload);
-    };
-
     if (e.target.matches('#system-button')) {
         location.reload();
     }
 
     if (e.target.classList.contains(`download`)) {
-        iconDownload.style.display = `none`;
-        loader.style.display = `block`;
-        downloadDefender.style.pointerEvents = `all`;
+        downloadFile(metaDataDownloadBtn);
     }
 
     // tutup lightbox
