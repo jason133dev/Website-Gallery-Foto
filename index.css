@@ -655,10 +655,11 @@ body {
 
     .container-hamburger {
         display: flex;
+        pointer-events: auto;
     }
 }
 
-@media(320px <=width <768px) {
+@media(320px <= width <768px) {
     .gambar-muncul {
         max-width: 400px;
         max-width: 400px;
@@ -715,9 +716,13 @@ body {
     }
 }
 
-@media(320px <=width < 425px) {
+@media(320px <= width < 425px) {
     .navbar {
         height: 50px;
+    }
+
+    .sidebar {
+        width: 90svw;
     }
 
     #logo {

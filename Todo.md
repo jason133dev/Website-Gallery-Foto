@@ -124,6 +124,5 @@
 ---
 
 ## 04-10-2026
-- [ ] Bagusin UI versi di hp
-- [ ] Buat bisa diinstall dan ada notif untuk install
+- [x] Bagusin UI versi di hp
 
