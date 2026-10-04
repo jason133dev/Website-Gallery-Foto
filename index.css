@@ -141,6 +141,20 @@ body {
     pointer-events: none;
 }
 
+/* sidebarbox */
+.sidebarbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100dvh;
+    background-color: rgba(33, 33, 33, 0.427);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    transition: opacity .3s ease-in-out;
+}
+
 /* lightbox */
 .lightbox {
     display: flex;

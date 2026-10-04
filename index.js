@@ -1,6 +1,7 @@
 // asset
 let group = document.querySelector('.group');
 let koleksi = document.querySelector(`.koleksi`);
+let sideBarBox = document.querySelector(`.sidebarbox`);
 let lightbox = document.querySelector(`.lightbox`);
 let preview = lightbox.querySelector(`img`);
 let download = document.querySelector(`.download`);
@@ -181,13 +182,13 @@ document.addEventListener(`click`, (e) => {
     // hamburger
     if (e.target.classList.contains(`hbr`)) {
         sideBar.style.translate = `0px`;
-        lightbox.classList.remove(`lightbox-hilang`);
+        sideBarBox.classList.remove(`lightbox-hilang`);
     }
 
     // close sidebar
     if (e.target.classList.contains(`cls`)) {
         sideBar.style.translate = `1000px`;
-        lightbox.classList.add(`lightbox-hilang`);
+        sideBarBox.classList.add(`lightbox-hilang`);
     }
 
     if (e.target.classList.contains(`dropdown-list`)) {
