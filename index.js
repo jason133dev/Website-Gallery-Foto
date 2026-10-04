@@ -22,6 +22,9 @@ let isDown = false;
 let startX;
 let scrollLeft;
 
+// guard
+let guard = false;
+
 group.addEventListener('pointerdown', (e) => {
     isDown = true;
     group.style.cursor = 'grabbing';
@@ -87,8 +90,6 @@ document.addEventListener(`click`, (e) => {
     }
 
     // download
-    let guard = false;
-
     async function downloadFile(urlDownload) {
         if (guard) return;
 

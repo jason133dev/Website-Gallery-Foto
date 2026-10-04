@@ -14,6 +14,9 @@ let textSystem1 = document.querySelector(`#text-system1`);
 let textSystem2 = document.querySelector(`#text-system2`);
 let systemBtn = document.querySelector(`#system-button`);
 
+// guard
+let guard = false;
+
 // lightbox logic
 document.addEventListener(`click`, (e) => {
     download.style.display = `flex`;
@@ -52,8 +55,6 @@ document.addEventListener(`click`, (e) => {
     }
 
     // download
-    let guard = false;
-
     async function downloadFile(urlDownload) {
         if (guard) return;
 
