@@ -71,6 +71,68 @@ body {
     background-color: var(--background-color2);
 }
 
+/* system */
+.system {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    height: 100dvh;
+    background-color: rgba(33, 33, 33, 0.427);
+    backdrop-filter: blur(10px);
+    z-index: 2500;
+    transition: opacity .3s ease-in-out;
+}
+
+#main-text-system {
+    font-family: var(--font-display1);
+    font-size: clamp(2rem, 6svw, 6svw);
+    margin-bottom: .3rem;
+    color: #edefef;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+    animation-delay: .4s;
+}
+
+.text-system {
+    font-family: montserrat-thin;
+    font-size: clamp(.7rem, 1.2svw, 1.5svw);
+    width: 75%;
+    color: #edefef89;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+    animation-delay: .2s;
+    text-align: center;
+}
+
+#system-button {
+    padding: 13.574px 27.320px;
+    font-size: clamp(0.6rem, 1cqw, 1.2rem);
+    margin: 1rem 0;
+    background-color: #edefef;
+    outline: none;
+    border: none;
+    color: var(--background-color);
+    border-radius: 2rem;
+    transition: background-color .5s ease, color .5s ease, translate .5s ease, opacity 1s ease-in-out;
+    opacity: 0;
+    animation-delay: .6s;
+}
+
+#system-button:hover {
+    color: #edefef;
+    background-color: rgb(56, 56, 56);
+    translate: 0 -3px;
+}
+
+#system-button:active {
+    translate: 0 0px;
+    background-color: rgb(93, 93, 93);
+}
+
+/* download defender */
 .download-defender {
     position: fixed;
     width: 100%;
@@ -669,6 +731,10 @@ body {
         width: 80dvw;
     }
 
+    .container-hamburger {
+        pointer-events: auto;
+    }
+
     .hero {
         height: 80dvh;
     }
@@ -728,6 +794,10 @@ body {
     #logo {
         width: 30px;
         height: 30px;
+    }
+
+    .container-hamburger {
+        pointer-events: auto;
     }
 
     #hamburger {

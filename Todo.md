@@ -126,9 +126,10 @@
 ## 04-10-2026
 - [x] Bagusin UI versi di hp
 - [ ] Buat event listener buat back navigator di hp
-- [ ] Catch jika terjadi eror
+- [x] Catch jika terjadi eror
 - [ ] Disable back navigator dari download 
-- [ ] Event listener buat back navigator untuk tutup Lightbox 
+- [x] Event listener buat back navigator untuk tutup Lightbox 
 - [ ] priority download font css
-- [ ] Bug double download 
-- [ ] Semua ukuran responsif ditaruh pointer event auto
+- [x] Bug double download 
+- [x] Semua ukuran responsif ditaruh pointer event auto
+- [ ] Buat event-3

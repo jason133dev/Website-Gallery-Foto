@@ -8,6 +8,11 @@ let loader = document.querySelector(`.loader`);
 let checkMark = document.querySelector(`.check-mark`);
 let dataSet = document.querySelector(`#dataset`);
 let downloadDefender = document.querySelector(`.download-defender`);
+let system = document.querySelector(`.system`);
+let mainTextSystem = document.querySelector(`#main-text-system`);
+let textSystem1 = document.querySelector(`#text-system1`);
+let textSystem2 = document.querySelector(`#text-system2`);
+let systemBtn = document.querySelector(`#system-button`);
 
 // lightbox logic
 document.addEventListener(`click`, (e) => {
@@ -38,6 +43,9 @@ document.addEventListener(`click`, (e) => {
             download.classList.remove(`download-hilang`);
 
             preview.removeEventListener('load', muncul)
+
+            // history back
+            history.pushState({ previewMuncul: true }, ``)
         }
 
         preview.addEventListener(`load`, muncul);
@@ -49,17 +57,14 @@ document.addEventListener(`click`, (e) => {
     async function downloadFile(urlDownload) {
         if (guard) return;
 
-        if (!metaDataDownload || metaDataDownload === `undefined`) {
-            console.log("⚠️ [Guard] Request blocked: Oi sabar! Datanya belom siap, jangan di-spam!");
-            return;
-        }
+        if (!metaDataDownload || metaDataDownload === `undefined`) { return; }
 
         guard = true;
         try {
             const response = await fetch(urlDownload);
 
             if (!response.ok) {
-                throw new Error(`Server overload atau status ${response.status}`);
+                throw new Error(`Eror code: ${response.status}`);
             }
 
             const d = await response.json();
@@ -73,11 +78,21 @@ document.addEventListener(`click`, (e) => {
             iconDownload.style.display = `none`;
             loader.style.display = `none`;
             checkMark.style.display = `block`;
-            guard = false;
             downloadDefender.style.pointerEvents = `none`;
 
         } catch (error) {
-            console.error("🚨 [DownloadSystem] Download gagal bray! Detail:", error.message);
+            system.classList.remove(`lightbox-hilang`);
+            mainTextSystem.innerHTML = `Gagal Mengunduh Foto`;
+            textSystem1.innerHTML = `Silakan periksa kembali koneksi internet Anda dan muat ulang halaman ini untuk mencoba lagi.`;
+            textSystem2.innerHTML = `${error.message}`;
+
+            // offline check
+            if (!navigator.onLine) {
+                system.classList.remove(`lightbox-hilang`);
+                mainTextSystem.innerHTML = `Koneksi Internet Anda Terputus`;
+                textSystem1.innerHTML = `Pastikan WiFi atau data seluler Anda aktif.`;
+                textSystem2.innerHTML = `Eror code: Offline`;
+            }
 
             guard = false;
             iconDownload.style.display = `block`;
@@ -85,9 +100,14 @@ document.addEventListener(`click`, (e) => {
             checkMark.style.display = `none`;
         }
     }
+
     download.onclick = () => {
         downloadFile(metaDataDownload);
     };
+
+    if (e.target.matches('#system-button')) {
+        location.reload();
+    }
 
     if (e.target.classList.contains(`download`)) {
         iconDownload.style.display = `none`;
@@ -97,7 +117,9 @@ document.addEventListener(`click`, (e) => {
 
     // tutup lightbox
     if (e.target.classList.contains(`lightbox`)) {
+        guard = false;
         lightbox.classList.add(`lightbox-hilang`);
+        sideBar.style.translate = `1000px`;
 
         download.href = `#`;
         download.setAttribute(`download`, `#`);
@@ -108,6 +130,11 @@ document.addEventListener(`click`, (e) => {
         iconDownload.style.display = `block`;
         loader.style.display = `none`;
         checkMark.style.display = `none`;
+
+        // riset history
+        if (history.state && history.state.previewMuncul) {
+            history.back();
+        }
     }
 })
 
@@ -125,3 +152,20 @@ let mediaQuery = window.matchMedia(`(orientation: landscape)`);
 mediaQuery.addEventListener(`change`, () => {
     location.reload();
 });
+
+// tutup light box dengan deteksi back navigation
+window.addEventListener(`popstate`, () => {
+    guard = false;
+    lightbox.classList.add(`lightbox-hilang`);
+    sideBar.style.translate = `1000px`;
+
+    download.href = `#`;
+    download.setAttribute(`download`, `#`);
+    download.style.display = `none`;
+    download.classList.add(`download-hilang`);
+
+    // reset logic icon icon download
+    iconDownload.style.display = `block`;
+    loader.style.display = `none`;
+    checkMark.style.display = `none`;
+})
