@@ -52,9 +52,6 @@ group.addEventListener('pointermove', (e) => {
     group.scrollLeft = scrollLeft - walk;
 });
 
-// buat download
-let metaDataDownloadBtn;
-
 // lightbox logic
 document.addEventListener(`click`, (e) => {
     download.style.display = `flex`;
@@ -70,7 +67,7 @@ document.addEventListener(`click`, (e) => {
         let linkPreview = e.target.src;
 
         // buat download
-        metaDataDownloadBtn = download.dataset.download = metaDataDownload;
+        download.dataset.download = metaDataDownload;
 
         let metaHtml = `
             <p id="dataset">${metaDataJudul} <br>
@@ -99,7 +96,7 @@ document.addEventListener(`click`, (e) => {
     async function downloadFile(urlDownload) {
         if (guard) return;
 
-        if (!metaDataDownload || metaDataDownload === `undefined`) { return; }
+        if (!urlDownload || urlDownload === `undefined`) { return; }
 
         guard = true;
         try {
@@ -125,6 +122,7 @@ document.addEventListener(`click`, (e) => {
             loader.style.display = `none`;
             checkMark.style.display = `block`;
             downloadDefender.style.pointerEvents = `none`;
+            guard = false;
 
         } catch (error) {
             system.classList.remove(`lightbox-hilang`);
@@ -151,13 +149,16 @@ document.addEventListener(`click`, (e) => {
         location.reload();
     }
 
-    if (e.target.classList.contains(`download`)) {
-        downloadFile(metaDataDownloadBtn);
+    let btnDownload = e.target.closest(`.download`);
+    if (btnDownload) {
+        let urlToDownload = download.dataset.download;
+        downloadFile(urlToDownload);
+        download.style.pointerEvents = `none`;
     }
 
     // tutup lightbox
     if (e.target.classList.contains(`lightbox`)) {
-        guard = false;
+        download.style.pointerEvents = `all`;
         lightbox.classList.add(`lightbox-hilang`);
         sideBar.style.translate = `1000px`;
 
