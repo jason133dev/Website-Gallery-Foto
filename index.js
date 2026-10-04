@@ -193,7 +193,7 @@ document.addEventListener(`click`, (e) => {
 
     if (e.target.classList.contains(`dropdown-list`)) {
         sideBar.style.translate = `1000px`;
-        lightbox.classList.add(`lightbox-hilang`);
+        sideBarBox.classList.add(`lightbox-hilang`);
     }
 
     // upload
