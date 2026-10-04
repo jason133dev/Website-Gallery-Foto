@@ -125,4 +125,5 @@
 
 ## 04-10-2026
 - [x] Bagusin UI versi di hp
+- [ ] Buat event listener buat back navigator di hp
 
