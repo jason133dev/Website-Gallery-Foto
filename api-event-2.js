@@ -1,4 +1,4 @@
-const apiURL = "https://script.google.com/macros/s/AKfycbzCAsAFRLXTbtp5rJgIOgVIOennFZMVF85kDcqwKVA005maqrXDc0MlZnujc-DUHfm0/exec";
+const apiURL = "https://script.google.com/macros/s/AKfycbyANl0BHN6CfUuB_Ztk5hB9iX3mM72WVvcy_4y04g9m6eAVqUm72dRfSu3JN2GhXrmu/exec";
 
 // asset
 let koleksi2 = document.querySelector('.koleksi');

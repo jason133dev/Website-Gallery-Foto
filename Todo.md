@@ -128,8 +128,7 @@
 - [x] Buat event listener buat back navigator di hp
 - [x] Catch jika terjadi eror
 - [x] Disable back navigator dari download
-- [x] Event listener buat back navigator untuk tutup Lightbox 
-- [ ] priority download font css
+- [x] Event listener buat back navigator untuk tutup Lightbox
 - [x] Bug double download 
 - [x] Semua ukuran responsif ditaruh pointer event auto
-- [ ] Buat event-3
+- [x] Buat event-3

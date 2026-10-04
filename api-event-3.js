@@ -51,7 +51,8 @@ function muatData(page) {
     if (sedangLoad) return;
     sedangLoad = true;
 
-    let dataLocalApi = localStorage.getItem(`page-${page}-event-1`);
+    // local storage
+    let dataLocalApi = localStorage.getItem(`page-${page}-event-3`);
 
     if (dataLocalApi) {
         let konversiData = JSON.parse(dataLocalApi);
@@ -63,6 +64,7 @@ function muatData(page) {
 
             renderKeGrid(konversiData.dataApi.data);
             sedangLoad = false;
+
             main2.innerHTML = `${konversiData.dataApi.jumlahPhoto} Photo`;
 
             if (halamanSekarang < totalHalaman) {
@@ -72,34 +74,32 @@ function muatData(page) {
             }
         } else {
             // reset jika sudah lewat 24 jam
-            localStorage.removeItem(`page-${page}-event-1`);
+            localStorage.removeItem(`page-${page}-event-3`);
 
             const script = document.createElement('script');
-            script.src = `${apiURL}?page=${page}&kategori=mpls`;
+            script.src = `${apiURL}?page=${page}&kategori=por`;
             document.body.appendChild(script);
         }
     } else {
         const script = document.createElement('script');
-        script.src = `${apiURL}?page=${page}&kategori=mpls`;
+        script.src = `${apiURL}?page=${page}&kategori=por`;
         document.body.appendChild(script);
     }
 }
 
-window.panggilData = (responseApi) => {
+window.panggilData = (response) => {
     try {
-        totalHalaman = responseApi.totalHalaman;
+        totalHalaman = response.totalHalaman;
 
         let dataGabungan = {
             timer: Date.now() + timer24Jam,
-            dataApi: responseApi
+            dataApi: response
         };
 
-        localStorage.setItem(`page-${halamanSekarang}-event-1`, JSON.stringify(dataGabungan));
-        renderKeGrid(responseApi.data);
-
+        localStorage.setItem(`page-${halamanSekarang}-event-3`, JSON.stringify(dataGabungan));
+        renderKeGrid(response.data);
         sedangLoad = false;
-
-        main2.innerHTML = `${responseApi.jumlahPhoto} Photo`;
+        main2.innerHTML = `${response.jumlahPhoto} Photo`;
 
         if (halamanSekarang < totalHalaman) {
             observer.observe(sentinel);
