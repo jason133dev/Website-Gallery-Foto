@@ -126,4 +126,7 @@
 ## 04-10-2026
 - [x] Bagusin UI versi di hp
 - [ ] Buat event listener buat back navigator di hp
+- [ ] Catch jika terjadi eror
+- [ ] Disable back navigator dari download 
+- [ ] Event listener buat back navigator untuk tutup Lightbox 
 
