@@ -127,7 +127,7 @@
 - [x] Bagusin UI versi di hp
 - [x] Buat event listener buat back navigator di hp
 - [x] Catch jika terjadi eror
-- [ ] Disable back navigator dari download
+- [x] Disable back navigator dari download
 - [x] Event listener buat back navigator untuk tutup Lightbox 
 - [ ] priority download font css
 - [x] Bug double download 

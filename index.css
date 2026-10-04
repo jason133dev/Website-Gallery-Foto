@@ -98,7 +98,7 @@ body {
 
 .text-system {
     font-family: montserrat-thin;
-    font-size: clamp(.7rem, 1.2svw, 1.5svw);
+    font-size: clamp(.9rem, 1.2svw, 1.5svw);
     width: 75%;
     color: #edefef89;
     transition: opacity 1s ease-in-out;
