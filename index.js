@@ -78,6 +78,9 @@ document.addEventListener(`click`, (e) => {
             download.classList.remove(`download-hilang`);
 
             preview.removeEventListener('load', muncul)
+
+            // history back
+            history.pushState({ previewMuncul: true }, ``)
         }
 
         preview.addEventListener(`load`, muncul);
@@ -162,6 +165,11 @@ document.addEventListener(`click`, (e) => {
         iconDownload.style.display = `block`;
         loader.style.display = `none`;
         checkMark.style.display = `none`;
+
+        // riset history
+        if (history.state && history.state.previewMuncul) {
+            history.back();
+        }
     }
 
     // hamburger
@@ -200,4 +208,24 @@ let mediaQuery = window.matchMedia(`(orientation: landscape)`);
 
 mediaQuery.addEventListener(`change`, () => {
     location.reload();
-}); 
+});
+
+// tutup light box dengan deteksi back navigation
+// popState hanya mendeteksi perubahan di history
+window.addEventListener(`popstate`, () => {
+    if (guard) return;
+
+    guard = false;
+    lightbox.classList.add(`lightbox-hilang`);
+    sideBar.style.translate = `1000px`;
+
+    download.href = `#`;
+    download.setAttribute(`download`, `#`);
+    download.style.display = `none`;
+    download.classList.add(`download-hilang`);
+
+    // reset logic icon icon download
+    iconDownload.style.display = `block`;
+    loader.style.display = `none`;
+    checkMark.style.display = `none`;
+})

@@ -155,6 +155,8 @@ mediaQuery.addEventListener(`change`, () => {
 
 // tutup light box dengan deteksi back navigation
 window.addEventListener(`popstate`, () => {
+    if (guard) return;
+
     guard = false;
     lightbox.classList.add(`lightbox-hilang`);
     sideBar.style.translate = `1000px`;
