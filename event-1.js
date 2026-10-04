@@ -65,7 +65,7 @@ document.addEventListener(`click`, (e) => {
             const response = await fetch(urlDownload);
 
             if (!response.ok) {
-                throw new Error(`Eror code: ${response.status}`);
+                throw new Error(`${response.status}`);
             }
 
             const d = await response.json();
@@ -85,7 +85,7 @@ document.addEventListener(`click`, (e) => {
             system.classList.remove(`lightbox-hilang`);
             mainTextSystem.innerHTML = `Gagal Mengunduh Foto`;
             textSystem1.innerHTML = `Silakan periksa kembali koneksi internet Anda dan muat ulang halaman ini untuk mencoba lagi.`;
-            textSystem2.innerHTML = `${error.message}`;
+            textSystem2.innerHTML = `Eror code: ${error.message}`;
 
             // offline check
             if (!navigator.onLine) {
