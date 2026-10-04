@@ -262,7 +262,7 @@ body {
     top: 0;
     right: 0;
     width: 40svw;
-    height: 100svh;
+    height: 100dvh;
     background-color: #edefef;
     backdrop-filter: blur(10px);
     z-index: 1500;
@@ -666,7 +666,7 @@ body {
     }
 
     .sidebar {
-        width: 80svw;
+        width: 80dvw;
     }
 
     .hero {
@@ -722,7 +722,7 @@ body {
     }
 
     .sidebar {
-        width: 90svw;
+        width: 90dvw;
     }
 
     #logo {
