@@ -131,3 +131,4 @@
 - [ ] Event listener buat back navigator untuk tutup Lightbox 
 - [ ] priority download font css
 - [ ] Bug double download 
+- [ ] Semua ukuran responsif ditaruh pointer event auto
