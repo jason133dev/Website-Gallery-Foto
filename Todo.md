@@ -130,4 +130,4 @@
 - [ ] Disable back navigator dari download 
 - [ ] Event listener buat back navigator untuk tutup Lightbox 
 - [ ] priority download font css
-
+- [ ] Bug double download 
