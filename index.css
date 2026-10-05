@@ -163,6 +163,7 @@ body {
     padding-left: 0;
     font-size: clamp(0.6rem, 1cqw, 1.2rem);
     color: var(--background-color2);
+    white-space: nowarp;
 }
 
 /* download defender */
@@ -770,7 +771,26 @@ body {
     }
 }
 
-@media(320px <= width <768px) {
+@media(320px <=width <768px) {
+    .download-notif {
+        width: fit-content;
+        height: fit-content;
+    }
+
+    #notif {
+        padding: 1rem;
+        padding-left: 0;
+        font-size: clamp(0.6rem, 1cqw, 1.2rem);
+        color: var(--background-color2);
+        white-space: nowrap;
+    }
+
+    #icon-download-notif {
+        padding-left: .75rem;
+        padding-right: .15rem;
+        width: 30px;
+    }
+
     .gambar-muncul {
         max-width: 400px;
         max-width: 400px;
@@ -831,7 +851,26 @@ body {
     }
 }
 
-@media(320px <= width < 425px) {
+@media(320px <=width < 425px) {
+    .download-notif {
+        width: 80dvw;
+        height: fit-content;
+    }
+
+    #notif {
+        padding: 1rem;
+        padding-left: 0;
+        font-size: clamp(0.4rem, 1cqw, 1.2rem);
+        color: var(--background-color2);
+        white-space: nowrap;
+    }
+
+    #icon-download-notif {
+        padding-left: .75rem;
+        padding-right: .15rem;
+        width: 27px;
+    }
+
     .navbar {
         height: 50px;
     }
