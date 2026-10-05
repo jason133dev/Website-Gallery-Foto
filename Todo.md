@@ -134,4 +134,4 @@
 - [x] Buat event-3
 
 ## 05-10-2026
-- [ ] Bug system message di hp
+- [x] Bug system message di hp
