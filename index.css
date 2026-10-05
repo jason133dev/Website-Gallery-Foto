@@ -78,7 +78,7 @@ body {
     align-items: center;
     flex-direction: column;
     position: fixed;
-    width: 100dvh;
+    width: 100dvw;
     height: 100dvh;
     background-color: rgba(33, 33, 33, 0.427);
     backdrop-filter: blur(10px);
