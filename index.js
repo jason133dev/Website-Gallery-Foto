@@ -221,6 +221,9 @@ mediaQuery.addEventListener(`change`, () => {
 
 // tutup light box dengan deteksi back navigation
 // popState hanya mendeteksi perubahan di history
+// sistem ini dibuat seolah olah user sudah membuka halaman baru, jadi ketika pakai
+// back navigator, ya dia bakalan keluar halaman kayak biasanya, tapi bedanya ini kita buat
+// halaman transparant dengan `history.pushState({ previewMuncul: true }, ``)`
 window.addEventListener(`popstate`, () => {
     if (guard) return;
 
