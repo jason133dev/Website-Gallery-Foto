@@ -164,7 +164,6 @@ window.addEventListener(`popstate`, () => {
 
     guard = false;
     lightbox.classList.add(`lightbox-hilang`);
-    sideBar.style.translate = `1000px`;
 
     download.href = `#`;
     download.setAttribute(`download`, `#`);
