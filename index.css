@@ -134,6 +134,37 @@ body {
     background-color: rgb(93, 93, 93);
 }
 
+/* download notif */
+.download-notif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 5dvh;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    background-color: rgba(255, 255, 255, 0.648);
+    border-radius: 2rem;
+    z-index: 1001;
+    transition: opacity .3s ease-in-out;
+}
+
+#icon-download-notif {
+    padding-left: .75rem;
+    padding-right: .15rem;
+    width: 37px;
+}
+
+#notif {
+    padding: 1rem;
+    padding-left: 0;
+    font-size: clamp(0.6rem, 1cqw, 1.2rem);
+    color: var(--background-color2);
+}
+
 /* download defender */
 .download-defender {
     position: fixed;
@@ -293,8 +324,10 @@ body {
 
 #nama {
     font-family: var(--font-display1);
+    font-size: clamp(.3rem, 6svw, 32px);
     text-align: center;
     white-space: nowrap;
+    overflow: visible;
 }
 
 .list {
@@ -418,15 +451,6 @@ body {
     opacity: .1;
 }
 
-#hero-teks2 {
-    font-family: montserrat-thin;
-    font-size: clamp(.7rem, 1.2svw, 1.5svw);
-    color: #edefef89;
-    transition: opacity 1s ease-in-out;
-    opacity: 0;
-    animation-delay: .2s;
-}
-
 #hero-teks {
     font-family: var(--font-display1);
     font-size: clamp(2rem, 6svw, 6svw);
@@ -434,6 +458,15 @@ body {
     transition: opacity 1s ease-in-out;
     opacity: 0;
     animation-delay: .4s;
+}
+
+#hero-teks2 {
+    font-family: montserrat-thin;
+    font-size: clamp(.7rem, 1.2svw, 1.5svw);
+    color: #edefef89;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+    animation-delay: .2s;
 }
 
 #hero-button {
@@ -541,7 +574,6 @@ body {
 .card-img-container {
     position: relative;
     height: 70%;
-    aspect-ratio: 3 / 2.6;
     border-radius: 5.4px;
     background-color: rgb(160, 160, 165);
     overflow: hidden;
@@ -565,6 +597,7 @@ body {
     height: 100%;
     filter: contrast(.8);
     opacity: .8;
+    object-fit: cover;
 }
 
 .information {
@@ -744,7 +777,7 @@ body {
     }
 
     .sidebar {
-        width: 80dvw;
+        width: 70dvw;
     }
 
     .container-hamburger {
@@ -817,8 +850,8 @@ body {
     }
 
     #hamburger {
-        width: 16px;
-        height: 16px;
+        width: 20px;
+        height: 20px;
     }
 
     .navbar h1 {

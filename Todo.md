@@ -135,3 +135,9 @@
 
 ## 05-10-2026
 - [x] Bug system message di hp
+- [x] Buat coming soon
+- [x] Perbesar hamburger
+- [x] Buat nontifikasi download
+
+## End (05-10-2026)
+- [x] Copy Right

@@ -13,6 +13,7 @@ let mainTextSystem = document.querySelector(`#main-text-system`);
 let textSystem1 = document.querySelector(`#text-system1`);
 let textSystem2 = document.querySelector(`#text-system2`);
 let systemBtn = document.querySelector(`#system-button`);
+let downloadNotif = document.querySelector(`.download-notif`);
 
 // guard
 let guard = false;
@@ -65,6 +66,7 @@ document.addEventListener(`click`, (e) => {
 
         guard = true;
         try {
+            downloadNotif.classList.remove(`lightbox-hilang`);
             iconDownload.style.display = `none`;
             loader.style.display = `block`;
             downloadDefender.style.pointerEvents = `all`;
@@ -88,7 +90,7 @@ document.addEventListener(`click`, (e) => {
             checkMark.style.display = `block`;
             downloadDefender.style.pointerEvents = `none`;
             guard = false;
-
+            downloadNotif.classList.add(`lightbox-hilang`);
         } catch (error) {
             system.classList.remove(`lightbox-hilang`);
             mainTextSystem.innerHTML = `Gagal Mengunduh Foto`;

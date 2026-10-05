@@ -17,6 +17,7 @@ let mainTextSystem = document.querySelector(`#main-text-system`);
 let textSystem1 = document.querySelector(`#text-system1`);
 let textSystem2 = document.querySelector(`#text-system2`);
 let systemBtn = document.querySelector(`#system-button`);
+let downloadNotif = document.querySelector(`.download-notif`);
 
 // slide logic
 let isDown = false;
@@ -101,6 +102,7 @@ document.addEventListener(`click`, (e) => {
 
         guard = true;
         try {
+            downloadNotif.classList.remove(`lightbox-hilang`);
             iconDownload.style.display = `none`;
             loader.style.display = `block`;
             downloadDefender.style.pointerEvents = `all`;
@@ -124,7 +126,7 @@ document.addEventListener(`click`, (e) => {
             checkMark.style.display = `block`;
             downloadDefender.style.pointerEvents = `none`;
             guard = false;
-
+            downloadNotif.classList.add(`lightbox-hilang`);
         } catch (error) {
             system.classList.remove(`lightbox-hilang`);
             mainTextSystem.innerHTML = `Gagal Mengunduh Foto`;
@@ -241,3 +243,13 @@ window.addEventListener(`popstate`, () => {
     loader.style.display = `none`;
     checkMark.style.display = `none`;
 })
+
+console.log(
+    `%c © ${new Date().getFullYear()} Jason Lee All Rights Reserved.`,
+    'color: #edefef; font-weight: bold; font-size: 30px; padding: 0 25%; text-align: center;'
+);
+
+console.log(
+    `%c Instagram: @zaxon_133`,
+    'color: #edefef; font-weight: bold; font-size: 30px; padding: 0 25%; text-align: center;'
+);
