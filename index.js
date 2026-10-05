@@ -150,6 +150,7 @@ document.addEventListener(`click`, (e) => {
         location.reload();
     }
 
+    // pakadi closest karena bisa return dataset, kalau contains hanya bernilai bolean
     let btnDownload = e.target.closest(`.download`);
     if (btnDownload) {
         let urlToDownload = download.dataset.download;
@@ -196,8 +197,9 @@ document.addEventListener(`click`, (e) => {
         sideBarBox.classList.add(`lightbox-hilang`);
     }
 
-    // upload
+    // upload dan reset local storage
     if (e.target.classList.contains(`logo-osis`)) {
+        localStorage.clear();
         console.log(`Link uplaod foto: https://drive.google.com/drive/folders/1FF5dbdUdc3c4Qk_EhERYrekGRMyXpTh3?usp=sharing`);
     }
 });
