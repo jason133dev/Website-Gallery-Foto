@@ -177,3 +177,13 @@ window.addEventListener(`popstate`, () => {
     loader.style.display = `none`;
     checkMark.style.display = `none`;
 })
+
+console.log(
+    `%c © ${new Date().getFullYear()} Jason Lee All Rights Reserved.`,
+    'color: #edefef; font-weight: bold; font-size: 30px; padding: 0 25%; text-align: center;'
+);
+
+console.log(
+    `%c Instagram: @zaxon_133`,
+    'color: #edefef; font-weight: bold; font-size: 30px; padding: 0 25%; text-align: center;'
+);
