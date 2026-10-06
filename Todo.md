@@ -150,3 +150,4 @@
 
 ## v.1.0.1 (06-10-2026)
 - [ ] Buat notif download bisa terlihat di hp
+- [x] Bug lenis
