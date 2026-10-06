@@ -133,11 +133,20 @@
 - [x] Semua ukuran responsif ditaruh pointer event auto
 - [x] Buat event-3
 
+---
+
 ## 05-10-2026
 - [x] Bug system message di hp
 - [x] Buat coming soon
 - [x] Perbesar hamburger
 - [x] Buat nontifikasi download
 
-## End (05-10-2026)
+---
+
+## End Development (05-10-2026)
 - [x] Copy Right
+
+---
+
+## v.1.0.1 (06-10-2026)
+- [ ] Buat notif download bisa terlihat di hp
