@@ -501,6 +501,8 @@ body {
     opacity: .5;
     filter: contrast(.8);
     width: 100svw;
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 /* group */
