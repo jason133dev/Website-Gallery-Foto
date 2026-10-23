@@ -503,6 +503,8 @@ body {
     width: 100svw;
     transform: translateZ(0);
     will-change: transform;
+    pointer-events: none;
+    backface-visibility: hidden;
 }
 
 /* group */
