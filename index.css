@@ -305,7 +305,7 @@ body {
     justify-content: space-between;
     align-items: center;
     position: -webkit-sticky;
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
     height: 74.03px;
@@ -434,7 +434,7 @@ body {
     align-items: center;
     flex-direction: column;
     text-align: center;
-    height: 100dvh;
+    height: 110dvh;
     position: relative;
     overflow: hidden;
 }
@@ -449,7 +449,7 @@ body {
     background-image: linear-gradient(to top, var(--background-color2) 10%, rgba(0, 0, 0, 0) 30%);
     background-size: cover;
     background-position: center;
-    opacity: .1;
+    opacity: 1;
 }
 
 #hero-teks {
@@ -493,6 +493,14 @@ body {
 #hero-button:active {
     translate: 0 0px;
     background-color: rgb(93, 93, 93);
+}
+
+#hero-video {
+    position: absolute;
+    z-index: -1;
+    opacity: .5;
+    filter: contrast(.8);
+    width: 100svw;
 }
 
 /* group */
@@ -769,6 +777,10 @@ body {
         display: flex;
         pointer-events: auto;
     }
+
+    #hero-video {
+        width: 220svw;
+    }
 }
 
 @media(320px <=width <768px) {
@@ -789,6 +801,10 @@ body {
         padding-left: .75rem;
         padding-right: .15rem;
         width: 30px;
+    }
+
+    #hero-video {
+        width: 220svw;
     }
 
     .gambar-muncul {
@@ -905,6 +921,10 @@ body {
 
     #hero-button {
         padding: 9.502px 19.124px;
+    }
+
+    #hero-video {
+        width: 250svw;
     }
 }
 

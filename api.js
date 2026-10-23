@@ -47,6 +47,7 @@ function renderKeGrid(data) {
 
     // Last updated
     let tanggalTerakhir = data[0].tanggal;
+    
     let pengubahTanggal = (tanggalTerakhir) => {
         let tanggalPisah = tanggalTerakhir.toLowerCase().split(" ");
         let tanggal = tanggalPisah[0];

@@ -149,6 +149,7 @@
 ---
 
 ## v.1.0.1 (06-10-2026)
-- [ ] Buat notif download bisa terlihat di hp
-- [ ] apakah file api aman di push ke browser?
 - [x] Bug lenis
+
+## v.1.0.2 (23-10-2026)
+- [x] UI Video Update
