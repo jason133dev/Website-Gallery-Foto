@@ -18,6 +18,7 @@ let textSystem1 = document.querySelector(`#text-system1`);
 let textSystem2 = document.querySelector(`#text-system2`);
 let systemBtn = document.querySelector(`#system-button`);
 let downloadNotif = document.querySelector(`.download-notif`);
+let heroVideo = document.querySelector(`#hero-video`);
 
 // slide logic
 let isDown = false;
@@ -243,6 +244,9 @@ window.addEventListener(`popstate`, () => {
     loader.style.display = `none`;
     checkMark.style.display = `none`;
 })
+
+// hilangkan video di mobile
+window.innerWidth < 768 ? heroVideo.style.display = `none` : heroVideo.style.display = `block`;
 
 console.log(
     `%c © ${new Date().getFullYear()} Jason Lee All Rights Reserved.`,
