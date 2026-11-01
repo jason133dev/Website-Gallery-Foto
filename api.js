@@ -188,5 +188,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // pemicu awal load
 document.addEventListener('DOMContentLoaded', () => {
-    muatData(1);
+    setTimeout(() => {
+       muatData(1); 
+    }, 900);
 })
