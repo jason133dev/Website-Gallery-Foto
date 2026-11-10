@@ -952,7 +952,7 @@ body {
 .scroll {
     animation: fade-in linear forwards;
     animation-timeline: view();
-    animation-range: entry 0% cover 10%;
+    animation-range: entry 0% cover 150px;
 }
 
 @keyframes fade-in {
