@@ -178,7 +178,7 @@ const observer = new IntersectionObserver((entries) => {
             observer.unobserve(sentinel);
 
             // generate skeleton
-            createSkeleton(9);
+            createSkeleton(18);
 
             // load halaman selanjutnya
             muatData(halamanSekarang);
